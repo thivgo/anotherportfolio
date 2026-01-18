@@ -18,10 +18,8 @@ const Contact: React.FC = () => {
         </div>
       </header>
 
-      {/* Map Section */}
       <section className="mb-10 relative group">
          <div className="absolute inset-0 border border-[#333] pointer-events-none group-hover:border-[#ccff00] transition-colors z-10"></div>
-         {/* Corner markers */}
          <div className="absolute top-0 left-0 w-2 h-2 bg-[#ccff00] z-20"></div>
          <div className="absolute bottom-0 right-0 w-2 h-2 bg-[#ccff00] z-20"></div>
 

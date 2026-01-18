@@ -10,9 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
       :root {
-        --accent-color: #ccff00; /* Neon Lime/Acid Green */
-        --bg-card: #121212; /* Almost Black */
-        --bg-body: #050505; /* Deep Black */
+        --accent-color: #ccff00;
+        --bg-card: #121212;
+        --bg-body: #050505;
         --border-color: #333333;
       }
       body {
@@ -26,7 +26,6 @@
         background-position: center top;
       }
       
-      /* Vignette effect */
       body::after {
         content: "";
         position: fixed;
@@ -43,7 +42,6 @@
         font-family: 'JetBrains Mono', monospace;
       }
       
-      /* Custom Scrollbar */
       ::-webkit-scrollbar {
         width: 6px;
       }
@@ -71,7 +69,6 @@
         max-height: 600px;
       }
       
-      /* Cyber Card Style */
       .glass-card {
         background: rgba(18, 18, 18, 0.85);
         backdrop-filter: blur(12px);
@@ -79,7 +76,6 @@
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
       }
 
-      /* Animation for pages */
       .animate-slide-up {
         animation: slideUp 0.5s ease-out forwards;
         opacity: 0;
@@ -93,7 +89,6 @@
         }
       }
 
-      /* Utility for text selection color */
       ::selection {
         background: var(--accent-color);
         color: black;

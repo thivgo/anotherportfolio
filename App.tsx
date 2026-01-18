@@ -22,33 +22,26 @@ const App: React.FC = () => {
 
   return (
     <main className="min-h-screen p-4 lg:p-14 flex justify-center font-inter selection:bg-[#ccff00] selection:text-black">
-      {/* Layout Grid mantendo items-start para independência de altura */}
       <div className="w-full max-w-[1250px] grid grid-cols-1 lg:grid-cols-4 gap-6 relative items-start">
         
-        {/* Left Sidebar (Personal Info) - Compacta e Sticky */}
         <div className="lg:col-span-1 sticky top-8">
           <Sidebar />
         </div>
 
-        {/* Main Content Area - Altura mínima retornada para 600px (padrão anterior) */}
         <div className="lg:col-span-3 w-full bg-[#121212]/90 backdrop-blur-sm border border-[#333] rounded-lg relative min-h-[600px] mb-20 lg:mb-0 shadow-[0_0_40px_-10px_rgba(0,0,0,0.7)]">
           
-          {/* Decorative Corner Lines */}
           <div className="absolute top-0 left-0 w-4 h-4 border-l-2 border-t-2 border-[#ccff00] -translate-x-[1px] -translate-y-[1px]"></div>
           <div className="absolute top-0 right-0 w-4 h-4 border-r-2 border-t-2 border-[#ccff00] translate-x-[1px] -translate-y-[1px]"></div>
           <div className="absolute bottom-0 left-0 w-4 h-4 border-l-2 border-b-2 border-[#ccff00] -translate-x-[1px] translate-y-[1px]"></div>
           <div className="absolute bottom-0 right-0 w-4 h-4 border-r-2 border-b-2 border-[#ccff00] translate-x-[1px] translate-y-[1px]"></div>
 
-          {/* Desktop Navigation */}
           <Navbar currentPage={currentPage} setPage={setCurrentPage} />
           
-          {/* Content Container */}
           <div className="p-6 lg:p-10 pt-8 mt-4 lg:mt-6">
             {renderContent()}
           </div>
         </div>
 
-        {/* Mobile Navigation (Bottom Fixed) */}
         <MobileNavbar currentPage={currentPage} setPage={setCurrentPage} />
         
       </div>

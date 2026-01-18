@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Eye, Github, X, Maximize2, Star } from 'lucide-react';
 import { PROJECTS } from '../constants';
 import { Project } from '../types';
-// @ts-ignore
 import { useModal } from '../hooks/useModal';
 
 const Portfolio: React.FC = () => {
@@ -31,7 +30,6 @@ const Portfolio: React.FC = () => {
         </div>
       </header>
 
-      {/* Filter Buttons */}
       <div className="flex flex-wrap gap-4 mb-8">
         {categories.map((cat) => (
           <button
@@ -48,10 +46,9 @@ const Portfolio: React.FC = () => {
         ))}
       </div>
 
-      {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
         {filteredProjects.map((project: Project) => {
-          const isFeatured = project.id === 1; // CareSync ID
+          const isFeatured = project.id === 1;
           return (
             <div 
                 key={project.id} 
@@ -61,7 +58,6 @@ const Portfolio: React.FC = () => {
                     : 'border border-[#333] hover:border-[#ccff00] hover:shadow-[0_0_20px_rgba(204,255,0,0.15)]'
                 }`}
             >
-                {/* Featured Badge */}
                 {isFeatured && (
                     <div className="absolute top-0 left-0 bg-[#ccff00] text-black text-[10px] font-bold px-3 py-1 z-20 font-mono tracking-wider uppercase flex items-center gap-1">
                         <Star className="w-3 h-3 fill-black" /> Destaque
@@ -73,7 +69,6 @@ const Portfolio: React.FC = () => {
                     <div className="absolute top-2 right-2 p-1 bg-black border border-[#ccff00] text-[#ccff00]">
                         <Maximize2 className="w-4 h-4"/>
                     </div>
-                    {/* Actions Section */}
                     <div className="flex gap-4" onClick={(e) => e.stopPropagation()}>
                         {project.githubUrl && (
                         <a 
@@ -106,7 +101,6 @@ const Portfolio: React.FC = () => {
                 />
                 </div>
                 <div className="p-5 relative">
-                {/* Tech decorative line */}
                 <div className={`absolute top-0 left-0 w-full h-[1px] transition-colors ${isFeatured ? 'bg-[#ccff00]' : 'bg-[#333] group-hover:bg-[#ccff00]'}`}></div>
                 
                 <h3 className={`font-bold text-lg mb-1 transition-colors font-mono uppercase truncate ${isFeatured ? 'text-[#ccff00]' : 'text-white group-hover:text-[#ccff00]'}`}>
@@ -126,7 +120,6 @@ const Portfolio: React.FC = () => {
         })}
       </div>
 
-      {/* Lightbox Modal */}
       {selectedImage && (
         <div 
             className="fixed inset-0 z-[100] flex items-center justify-center bg-[#050505]/95 backdrop-blur-md p-4 animate-fade-in"

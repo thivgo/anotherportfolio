@@ -15,9 +15,7 @@ const Resume: React.FC = () => {
       </header>
 
       <div className="grid grid-cols-1 gap-12 mb-12">
-        {/* Education Section */}
         <section className="relative">
-          {/* Header container */}
           <div className="flex items-center gap-4 relative z-10">
             <div className="bg-[#0a0a0a] p-3 rounded-sm border border-[#333] w-[50px] h-[50px] flex items-center justify-center shrink-0 shadow-sm relative z-20">
               <BookOpen className="w-6 h-6 text-[#ccff00]" />
@@ -25,19 +23,11 @@ const Resume: React.FC = () => {
             <h3 className="text-2xl font-bold text-white font-mono uppercase">Educação</h3>
           </div>
 
-          {/* Timeline container using absolute positioning for robust alignment */}
           <div className="relative pt-1 space-y-12 -mt-2">
-            {/* Vertical Line: 
-                Positioned at 24.5px to align its center (25px) with the 50px icon box center (25px) 
-            */}
             <div className="absolute left-[24.5px] top-0 bottom-0 w-[1px] bg-[#333]"></div>
 
             {EDUCATION.map((edu) => (
               <div key={edu.id} className="relative pl-[60px] group">
-                 {/* Diamond:
-                     Width 16px (w-4). Center is 8px.
-                     To align center at 25px: Left should be 25 - 8 = 17px.
-                 */}
                  <div className="absolute left-[17px] top-[6px] w-4 h-4 rounded-none rotate-45 bg-[#000] border border-[#ccff00] group-hover:bg-[#ccff00] transition-colors z-10"></div>
                 
                 <h4 className="text-white font-bold text-xl mb-1">{edu.degree}</h4>
@@ -51,7 +41,6 @@ const Resume: React.FC = () => {
           </div>
         </section>
 
-        {/* Experience Section */}
         <section className="relative">
           <div className="flex items-center gap-4 relative z-10">
             <div className="bg-[#0a0a0a] p-3 rounded-sm border border-[#333] w-[50px] h-[50px] flex items-center justify-center shrink-0 shadow-sm relative z-20">
@@ -79,7 +68,6 @@ const Resume: React.FC = () => {
         </section>
       </div>
 
-      {/* Skills Section */}
       <section className="bg-[#0a0a0a] p-8 rounded-sm border border-[#333] relative overflow-hidden">
         <div className="absolute top-0 right-0 p-2 opacity-50">
           <div className="flex gap-1">

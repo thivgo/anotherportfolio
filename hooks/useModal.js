@@ -1,9 +1,5 @@
 import { useState } from 'react';
 
-/**
- * Hook para gerenciamento de estado de Modal/Lightbox
- * @returns {Object} - { isOpen, selectedItem, openModal, closeModal }
- */
 export const useModal = () => {
   const [selectedItem, setSelectedItem] = useState(null);
 
