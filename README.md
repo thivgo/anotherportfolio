@@ -1,31 +1,46 @@
-# Portfólio Acadêmico - Ciência da Computação
+# 🎓 Portfólio Acadêmico
 
-![Status do Projeto](https://img.shields.io/badge/status-em_desenvolvimento-orange) ![Licença](https://img.shields.io/badge/license-MIT-blue)
+> 
+> Portfólio pessoal focado em documentar a evolução técnica e projetos práticos.
+> Desenvolvido durante o 3º semestre de Ciência da Computação.
+> 
 
-## 📌 Sobre o Projeto
+[![Vite](https://img.shields.io/badge/Build_Tool-Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![React](https://img.shields.io/badge/Framework-React-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-Este repositório contém o código-fonte do meu site de portfólio pessoal, desenvolvido durante o meu 3º semestre do curso de **Ciência da Computação**.
+## 🎯 Objetivo do Projeto
 
-O objetivo deste projeto é documentar minha evolução técnica, apresentar os projetos práticos que desenvolvi e demonstrar minhas habilidades em desenvolvimento web moderno, estruturas de dados e boas práticas de código.
+Este projeto serve como meu "cartão de visitas" digital e laboratório de desenvolvimento. O foco principal é a **demonstração de competências** adquiridas na graduação, centralizando projetos acadêmicos, experimentos com algoritmos e aplicações web em um ambiente controlado e performático.
 
-## 🚀 Tecnologias Utilizadas
+## 🏗 Arquitetura & Tech Stack
 
-O projeto foi construído utilizando as seguintes tecnologias e ferramentas:
+A arquitetura foi escolhida para garantir uma experiência de desenvolvimento moderna (DX) e uma entrega final otimizada para o usuário (UX), priorizando SPA (Single Page Application) e tipagem estática.
 
-* **[React](https://reactjs.org/)**: Biblioteca para construção de interfaces de usuário.
-* **[TypeScript](https://www.typescriptlang.org/)**: Superset do JavaScript que adiciona tipagem estática.
-* **[Vite](https://vitejs.dev/)**: Build tool rápida e leve para projetos frontend.
-* **HTML5 & CSS3**: Estruturação e estilização.
+| Componente | Tecnologia Escolhida | Justificativa Arquitetural |
+| :--- | :--- | :--- |
+| **Build Tool** | Vite | Bundling extremamente rápido e HMR (Hot Module Replacement) instantâneo. |
+| **Framework** | React 18+ | Componentização e ecossistema robusto para interfaces reativas. |
+| **Linguagem** | TypeScript | Segurança de tipos em tempo de desenvolvimento e código autodocumentado. |
+| **Estilização** | CSS3 / Modules | Controle granular de estilos e fundamentos de design responsivo. |
+| **Deploy** | Vercel / Netlify | CI/CD automatizado e distribuição global via CDN. |
 
-## 📂 Estrutura de Pastas
+## 🗄️ Estrutura do Projeto
 
-A estrutura principal do projeto está organizada da seguinte forma:
+O projeto segue uma organização modular, separando lógica de negócios (hooks), interface (components) e utilitários, facilitando a escalabilidade.
 
 ```bash
 /src
-  ├── /components   # Componentes reutilizáveis da interface
-  ├── /hooks        # Hooks personalizados do React
-  ├── /utils        # Funções utilitárias e lógica auxiliar
-  ├── /public       # Assets estáticos (imagens, ícones)
-  ├── App.tsx       # Componente principal
-  └── main.tsx      # Ponto de entrada da aplicação
+ ├── /components      # UI Components (Atomic Design)
+ │    ├── /Header     # Navegação e identidade visual
+ │    ├── /Projects   # Grid de exibição dos projetos
+ │    └── /Footer     # Contatos e links sociais
+ │
+ ├── /hooks           # Custom React Hooks
+ │    └── useTheme.ts # Gerenciamento de tema (Dark/Light)
+ │
+ ├── /utils           # Helper Functions
+ │    └── format.ts   # Formatação de datas e textos
+ │
+ ├── App.tsx          # Entry point e roteamento
+ └── main.tsx         # Injeção no DOM
