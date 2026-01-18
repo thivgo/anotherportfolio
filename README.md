@@ -1,20 +1,31 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Portfólio Acadêmico - Ciência da Computação
 
-# Run and deploy your AI Studio app
+![Status do Projeto](https://img.shields.io/badge/status-em_desenvolvimento-orange) ![Licença](https://img.shields.io/badge/license-MIT-blue)
 
-This contains everything you need to run your app locally.
+## 📌 Sobre o Projeto
 
-View your app in AI Studio: https://ai.studio/apps/drive/161_aq2wy7T4x98HouqbWZ0Le9SEsgfpl
+Este repositório contém o código-fonte do meu site de portfólio pessoal, desenvolvido durante o meu 3º semestre do curso de **Ciência da Computação**.
 
-## Run Locally
+O objetivo deste projeto é documentar minha evolução técnica, apresentar os projetos práticos que desenvolvi e demonstrar minhas habilidades em desenvolvimento web moderno, estruturas de dados e boas práticas de código.
 
-**Prerequisites:**  Node.js
+## 🚀 Tecnologias Utilizadas
 
+O projeto foi construído utilizando as seguintes tecnologias e ferramentas:
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+* **[React](https://reactjs.org/)**: Biblioteca para construção de interfaces de usuário.
+* **[TypeScript](https://www.typescriptlang.org/)**: Superset do JavaScript que adiciona tipagem estática.
+* **[Vite](https://vitejs.dev/)**: Build tool rápida e leve para projetos frontend.
+* **HTML5 & CSS3**: Estruturação e estilização.
+
+## 📂 Estrutura de Pastas
+
+A estrutura principal do projeto está organizada da seguinte forma:
+
+```bash
+/src
+  ├── /components   # Componentes reutilizáveis da interface
+  ├── /hooks        # Hooks personalizados do React
+  ├── /utils        # Funções utilitárias e lógica auxiliar
+  ├── /public       # Assets estáticos (imagens, ícones)
+  ├── App.tsx       # Componente principal
+  └── main.tsx      # Ponto de entrada da aplicação
