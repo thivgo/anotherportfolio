@@ -23,7 +23,7 @@ A arquitetura foi escolhida para garantir uma experiência de desenvolvimento mo
 | **Framework** | React 18+ | Componentização e ecossistema robusto para interfaces reativas. |
 | **Linguagem** | TypeScript | Segurança de tipos em tempo de desenvolvimento e código autodocumentado. |
 | **Estilização** | CSS3 / Modules | Controle granular de estilos e fundamentos de design responsivo. |
-| **Deploy** | Vercel / Netlify | CI/CD automatizado e distribuição global via CDN. |
+| **Deploy** | Vercel | CI/CD automatizado e distribuição global via CDN. |
 
 ## 🗄️ Estrutura do Projeto
 
