@@ -1,10 +1,11 @@
 import React from 'react';
 import { PERSONAL_INFO, SERVICES } from '../constants';
-import { Code, Palette, Smartphone, Globe } from 'lucide-react';
+import { Code, Palette, Smartphone, Globe, Layout } from 'lucide-react';
 
 const About: React.FC = () => {
   const getIcon = (iconName: string) => {
     switch (iconName) {
+      case 'layout': return <Layout className="w-6 h-6 text-[#ccff00]" />;
       case 'code': return <Code className="w-6 h-6 text-[#ccff00]" />;
       case 'palette': return <Palette className="w-6 h-6 text-[#ccff00]" />;
       case 'smartphone': return <Smartphone className="w-6 h-6 text-[#ccff00]" />;
