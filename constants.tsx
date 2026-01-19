@@ -14,8 +14,13 @@ export const PERSONAL_INFO = {
 
 export const SERVICES: Service[] = [
   {
+    title: "UI/UX Design",
+    description: "Criação de interfaces intuitivas e experiências de usuário envolventes, desde wireframes até protótipos de alta fidelidade.",
+    icon: "layout"
+  },
+  {
     title: "Web Design",
-    description: "Desenvolvimento de designs modernos e de alta qualidade com foco em UI/UX.",
+    description: "Desenvolvimento de layouts modernos e atraentes, priorizando a estética visual e a identidade da marca.",
     icon: "palette"
   },
   {
