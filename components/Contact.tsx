@@ -1,17 +1,20 @@
 import React from 'react';
 import { Send } from 'lucide-react';
+import { useLanguage } from '../hooks/useLanguage';
 
 const Contact: React.FC = () => {
+  const { t } = useLanguage();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Mensagem enviada! (Simulação)");
+    alert(t('contact.alert'));
   };
 
   return (
     <article className="animate-slide-up">
       <header className="mb-10 flex items-center gap-3">
         <h2 className="text-3xl font-bold text-white uppercase tracking-tighter">
-          Contato
+          {t('contact.title')}
         </h2>
         <div className="h-1 flex-grow bg-[#333] relative">
             <div className="absolute left-0 top-0 h-full w-20 bg-[#ccff00]"></div>
@@ -36,24 +39,24 @@ const Contact: React.FC = () => {
       </section>
 
       <section>
-        <h3 className="text-2xl font-bold text-white mb-6 font-mono uppercase">Formulário de Contato</h3>
+        <h3 className="text-2xl font-bold text-white mb-6 font-mono uppercase">{t('contact.formTitle')}</h3>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <input 
               type="text" 
-              placeholder="NOME_COMPLETO" 
+              placeholder={t('contact.namePlaceholder')} 
               required
               className="bg-[#0a0a0a] text-gray-200 border border-[#333] rounded-sm px-5 py-4 w-full focus:outline-none focus:border-[#ccff00] focus:ring-0 transition-all placeholder:text-gray-600 font-mono text-sm"
             />
             <input 
               type="email" 
-              placeholder="EMAIL_ADDRESS" 
+              placeholder={t('contact.emailPlaceholder')} 
               required
               className="bg-[#0a0a0a] text-gray-200 border border-[#333] rounded-sm px-5 py-4 w-full focus:outline-none focus:border-[#ccff00] focus:ring-0 transition-all placeholder:text-gray-600 font-mono text-sm"
             />
           </div>
           <textarea 
-            placeholder="MENSAGEM..." 
+            placeholder={t('contact.messagePlaceholder')} 
             rows={4}
             required
             className="bg-[#0a0a0a] text-gray-200 border border-[#333] rounded-sm px-5 py-4 w-full focus:outline-none focus:border-[#ccff00] focus:ring-0 transition-all resize-none placeholder:text-gray-600 font-mono text-sm"
@@ -64,7 +67,7 @@ const Contact: React.FC = () => {
             className="flex items-center gap-2 bg-[#ccff00] text-black hover:bg-white px-8 py-4 rounded-sm font-bold transition-all ml-auto cursor-pointer shadow-[0_0_15px_rgba(204,255,0,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] uppercase font-mono tracking-wider"
           >
             <Send className="w-4 h-4" />
-            Enviar Dados
+            {t('contact.send')}
           </button>
         </form>
       </section>

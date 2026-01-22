@@ -3,9 +3,11 @@ import { Eye, Github, X, Maximize2, Star } from 'lucide-react';
 import { PROJECTS } from '../constants';
 import { Project } from '../types';
 import { useModal } from '../hooks/useModal';
+import { useLanguage } from '../hooks/useLanguage';
 
 const Portfolio: React.FC = () => {
   const [filter, setFilter] = useState<string>('All');
+  const { t, language } = useLanguage();
   
   const { 
     selectedItem: selectedImage, 
@@ -23,7 +25,7 @@ const Portfolio: React.FC = () => {
     <article className="animate-slide-up relative">
       <header className="mb-10 flex items-center gap-3">
         <h2 className="text-3xl font-bold text-white uppercase tracking-tighter">
-          Portfólio
+          {t('portfolio.title')}
         </h2>
         <div className="h-1 flex-grow bg-[#333] relative">
             <div className="absolute left-0 top-0 h-full w-20 bg-[#ccff00]"></div>
@@ -41,7 +43,7 @@ const Portfolio: React.FC = () => {
                 : 'bg-transparent text-gray-400 border-[#333] hover:text-[#ccff00] hover:border-[#ccff00]'
             }`}
           >
-            {cat}
+            {cat === 'All' ? t('portfolio.all') : cat}
           </button>
         ))}
       </div>
@@ -60,7 +62,7 @@ const Portfolio: React.FC = () => {
             >
                 {isFeatured && (
                     <div className="absolute top-0 left-0 bg-[#ccff00] text-black text-[10px] font-bold px-3 py-1 z-20 font-mono tracking-wider uppercase flex items-center gap-1">
-                        <Star className="w-3 h-3 fill-black" /> Destaque
+                        <Star className="w-3 h-3 fill-black" /> {t('portfolio.featured')}
                     </div>
                 )}
 

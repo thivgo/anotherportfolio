@@ -1,5 +1,6 @@
 import React from 'react';
 import { Page } from '../types';
+import { useLanguage } from '../hooks/useLanguage';
 
 interface NavbarProps {
   currentPage: Page;
@@ -7,7 +8,18 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage }) => {
+  const { t } = useLanguage();
   const navItems = [Page.ABOUT, Page.RESUME, Page.PORTFOLIO, Page.CONTACT];
+
+  const getLabel = (page: Page) => {
+    switch (page) {
+      case Page.ABOUT: return t('nav.about');
+      case Page.RESUME: return t('nav.resume');
+      case Page.PORTFOLIO: return t('nav.portfolio');
+      case Page.CONTACT: return t('nav.contact');
+      default: return page;
+    }
+  };
 
   return (
     <nav className="absolute top-0 right-0 bg-[#050505] border-l border-b border-[#333] rounded-bl-xl px-8 py-0 z-20 hidden lg:block shadow-lg">
@@ -22,7 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage }) => {
                   : 'text-gray-400 border-transparent hover:text-[#ccff00] hover:bg-[#1a1a1a]'
               }`}
             >
-              {item}
+              {getLabel(item)}
             </button>
           </li>
         ))}
@@ -32,7 +44,18 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setPage }) => {
 };
 
 export const MobileNavbar: React.FC<NavbarProps> = ({ currentPage, setPage }) => {
+  const { t } = useLanguage();
   const navItems = [Page.ABOUT, Page.RESUME, Page.PORTFOLIO, Page.CONTACT];
+
+  const getLabel = (page: Page) => {
+    switch (page) {
+      case Page.ABOUT: return t('nav.about');
+      case Page.RESUME: return t('nav.resume');
+      case Page.PORTFOLIO: return t('nav.portfolio');
+      case Page.CONTACT: return t('nav.contact');
+      default: return page;
+    }
+  };
 
   return (
     <nav className="fixed bottom-4 left-4 right-4 bg-[#121212]/95 backdrop-blur-xl border border-[#333] z-50 lg:hidden rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.5)]">
@@ -45,7 +68,7 @@ export const MobileNavbar: React.FC<NavbarProps> = ({ currentPage, setPage }) =>
                 currentPage === item ? 'text-[#050505] bg-[#ccff00]' : 'text-gray-400'
               }`}
             >
-              {item}
+              {getLabel(item)}
             </button>
           </li>
         ))}

@@ -1,17 +1,19 @@
 import React, { useState, useMemo } from 'react';
-import { Mail, Github, MapPin, ChevronDown, Calendar, Linkedin, Smartphone } from 'lucide-react';
+import { Mail, Github, MapPin, ChevronDown, Calendar, Linkedin, Smartphone, Languages } from 'lucide-react';
 import { PERSONAL_INFO } from '../constants';
 import { useScramble } from '../hooks/useScramble';
+import { useLanguage } from '../hooks/useLanguage';
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { t, language, toggleLanguage } = useLanguage();
   
   const roles = useMemo(() => [
-    PERSONAL_INFO.role, 
+    t('sidebar.role'), 
     "Dev Front-end",
     "UI/UX Designer",
     "Code Solver"
-  ], []);
+  ], [t]);
 
   const displayText = useScramble(roles, 60, 2000);
 
@@ -22,7 +24,16 @@ const Sidebar: React.FC = () => {
       
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#ccff00] to-transparent opacity-50"></div>
 
-      <div className="flex flex-col items-center gap-6 relative z-10">
+      <button 
+        onClick={toggleLanguage}
+        className="absolute top-4 right-4 z-20 flex items-center gap-1 bg-[#050505] border border-[#333] hover:border-[#ccff00] px-2 py-1 rounded-sm text-xs font-mono text-gray-300 hover:text-[#ccff00] transition-all"
+        title={language === 'pt' ? 'Switch to English' : 'Mudar para Português'}
+      >
+        <Languages className="w-3 h-3" />
+        {language === 'pt' ? 'EN' : 'PT'}
+      </button>
+
+      <div className="flex flex-col items-center gap-6 relative z-10 mt-6 lg:mt-4">
         <div className="relative mt-2">
           <div className="w-32 h-32 rounded-full border border-[#333] flex items-center justify-center relative">
             <div className="absolute w-full h-full rounded-full border-t-2 border-[#ccff00] animate-spin"></div>
@@ -47,7 +58,7 @@ const Sidebar: React.FC = () => {
 
         <button 
           onClick={toggleSidebar}
-          className="lg:hidden absolute top-4 right-4 p-2 text-[#ccff00] hover:bg-[#333] rounded transition-colors"
+          className="lg:hidden absolute top-4 left-4 p-2 text-[#ccff00] hover:bg-[#333] rounded transition-colors"
         >
           <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
         </button>
@@ -57,37 +68,37 @@ const Sidebar: React.FC = () => {
         <ul className="grid gap-4">
           <ContactItem 
             icon={<Mail className="w-4 h-4" />} 
-            title="Email" 
+            title={t('sidebar.email')}
             value={PERSONAL_INFO.email} 
             link={`mailto:${PERSONAL_INFO.email}`}
           />
           <ContactItem 
             icon={<Smartphone className="w-4 h-4" />} 
-            title="Telefone" 
+            title={t('sidebar.phone')}
             value="+55 (91) 98828-2930" 
             link="https://wa.me/5591988282930"
           />
           <ContactItem 
             icon={<Github className="w-4 h-4" />} 
-            title="GitHub" 
+            title={t('sidebar.github')}
             value="thivgo"
             link={`https://${PERSONAL_INFO.github}`}
           />
           <ContactItem 
             icon={<Linkedin className="w-4 h-4" />} 
-            title="LinkedIn" 
+            title={t('sidebar.linkedin')}
             value="Thiago Maués"
             link={`https://${PERSONAL_INFO.linkedin}`}
           />
           <ContactItem 
             icon={<MapPin className="w-4 h-4" />} 
-            title="Localização" 
+            title={t('sidebar.location')} 
             value={PERSONAL_INFO.location} 
           />
           <ContactItem 
             icon={<Calendar className="w-4 h-4" />} 
-            title="Semestre" 
-            value="3º Período" 
+            title={t('sidebar.semester')} 
+            value={t('sidebar.semester.value')} 
           />
         </ul>
       </div>
