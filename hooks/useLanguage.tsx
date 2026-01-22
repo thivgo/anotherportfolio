@@ -44,7 +44,9 @@ const UI_TRANSLATIONS: Record<string, { pt: string; en: string }> = {
   'contact.emailPlaceholder': { pt: 'ENDERECO_EMAIL', en: 'EMAIL_ADDRESS' },
   'contact.messagePlaceholder': { pt: 'MENSAGEM...', en: 'MESSAGE...' },
   'contact.send': { pt: 'Enviar Dados', en: 'Send Data' },
-  'contact.alert': { pt: 'Mensagem enviada! (Simulação)', en: 'Message sent! (Simulation)' },
+  'contact.sending': { pt: 'Enviando...', en: 'Sending...' },
+  'contact.success': { pt: 'Mensagem enviada com sucesso!', en: 'Message sent successfully!' },
+  'contact.error': { pt: 'Erro ao enviar. Tente novamente.', en: 'Error sending. Try again.' },
 };
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
