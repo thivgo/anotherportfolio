@@ -1,13 +1,54 @@
-import React from 'react';
-import { Send } from 'lucide-react';
+import React, { useState } from 'react';
+import { Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { useLanguage } from '../hooks/useLanguage';
 
 const Contact: React.FC = () => {
   const { t } = useLanguage();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [status, setStatus] = useState<'IDLE' | 'SENDING' | 'SUCCESS' | 'ERROR'>('IDLE');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert(t('contact.alert'));
+    setStatus('SENDING');
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/thiago.mauess@gmail.com", {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `Novo contato de: ${formData.name}`,
+          _template: "table",
+          _captcha: "false"
+        })
+      });
+
+      if (response.ok) {
+        setStatus('SUCCESS');
+        setFormData({ name: '', email: '', message: '' });
+        // Reset status after 5 seconds
+        setTimeout(() => setStatus('IDLE'), 5000);
+      } else {
+        setStatus('ERROR');
+      }
+    } catch (error) {
+      console.error("Form error:", error);
+      setStatus('ERROR');
+    }
   };
 
   return (
@@ -44,31 +85,70 @@ const Contact: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <input 
               type="text" 
+              name="name"
               placeholder={t('contact.namePlaceholder')} 
               required
-              className="bg-[#0a0a0a] text-gray-200 border border-[#333] rounded-sm px-5 py-4 w-full focus:outline-none focus:border-[#ccff00] focus:ring-0 transition-all placeholder:text-gray-600 font-mono text-sm"
+              value={formData.name}
+              onChange={handleChange}
+              disabled={status === 'SENDING' || status === 'SUCCESS'}
+              className="bg-[#0a0a0a] text-gray-200 border border-[#333] rounded-sm px-5 py-4 w-full focus:outline-none focus:border-[#ccff00] focus:ring-0 transition-all placeholder:text-gray-600 font-mono text-sm disabled:opacity-50 disabled:cursor-not-allowed"
             />
             <input 
               type="email" 
+              name="email"
               placeholder={t('contact.emailPlaceholder')} 
               required
-              className="bg-[#0a0a0a] text-gray-200 border border-[#333] rounded-sm px-5 py-4 w-full focus:outline-none focus:border-[#ccff00] focus:ring-0 transition-all placeholder:text-gray-600 font-mono text-sm"
+              value={formData.email}
+              onChange={handleChange}
+              disabled={status === 'SENDING' || status === 'SUCCESS'}
+              className="bg-[#0a0a0a] text-gray-200 border border-[#333] rounded-sm px-5 py-4 w-full focus:outline-none focus:border-[#ccff00] focus:ring-0 transition-all placeholder:text-gray-600 font-mono text-sm disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
           <textarea 
+            name="message"
             placeholder={t('contact.messagePlaceholder')} 
             rows={4}
             required
-            className="bg-[#0a0a0a] text-gray-200 border border-[#333] rounded-sm px-5 py-4 w-full focus:outline-none focus:border-[#ccff00] focus:ring-0 transition-all resize-none placeholder:text-gray-600 font-mono text-sm"
+            value={formData.message}
+            onChange={handleChange}
+            disabled={status === 'SENDING' || status === 'SUCCESS'}
+            className="bg-[#0a0a0a] text-gray-200 border border-[#333] rounded-sm px-5 py-4 w-full focus:outline-none focus:border-[#ccff00] focus:ring-0 transition-all resize-none placeholder:text-gray-600 font-mono text-sm disabled:opacity-50 disabled:cursor-not-allowed"
           ></textarea>
           
-          <button 
-            type="submit" 
-            className="flex items-center gap-2 bg-[#ccff00] text-black hover:bg-white px-8 py-4 rounded-sm font-bold transition-all ml-auto cursor-pointer shadow-[0_0_15px_rgba(204,255,0,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] uppercase font-mono tracking-wider"
-          >
-            <Send className="w-4 h-4" />
-            {t('contact.send')}
-          </button>
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div className="flex-1">
+              {status === 'SUCCESS' && (
+                <div className="flex items-center gap-2 text-[#ccff00] animate-fade-in font-mono text-sm">
+                  <CheckCircle className="w-4 h-4" />
+                  {t('contact.success')}
+                </div>
+              )}
+              {status === 'ERROR' && (
+                <div className="flex items-center gap-2 text-red-500 animate-fade-in font-mono text-sm">
+                  <AlertCircle className="w-4 h-4" />
+                  {t('contact.error')}
+                </div>
+              )}
+            </div>
+
+            <button 
+              type="submit" 
+              disabled={status === 'SENDING' || status === 'SUCCESS'}
+              className="flex items-center gap-2 bg-[#ccff00] text-black hover:bg-white px-8 py-4 rounded-sm font-bold transition-all ml-auto cursor-pointer shadow-[0_0_15px_rgba(204,255,0,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] uppercase font-mono tracking-wider disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:bg-[#ccff00]"
+            >
+              {status === 'SENDING' ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  {t('contact.sending')}
+                </>
+              ) : (
+                <>
+                  <Send className="w-4 h-4" />
+                  {t('contact.send')}
+                </>
+              )}
+            </button>
+          </div>
         </form>
       </section>
     </article>
