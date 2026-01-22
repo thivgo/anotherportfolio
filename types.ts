@@ -1,9 +1,14 @@
+export type Language = 'pt' | 'en';
+
 export interface Project {
   id: number;
   title: string;
   category: string;
   image: string;
-  description: string;
+  description: {
+    pt: string;
+    en: string;
+  };
   tech: string[];
   githubUrl?: string;
   demoUrl?: string;
@@ -11,18 +16,36 @@ export interface Project {
 
 export interface Experience {
   id: number;
-  role: string;
+  role: {
+    pt: string;
+    en: string;
+  };
   company: string;
-  period: string;
-  description: string;
+  period: {
+    pt: string;
+    en: string;
+  };
+  description: {
+    pt: string;
+    en: string;
+  };
 }
 
 export interface Education {
   id: number;
-  degree: string;
+  degree: {
+    pt: string;
+    en: string;
+  };
   institution: string;
-  period: string;
-  description: string;
+  period: {
+    pt: string;
+    en: string;
+  };
+  description: {
+    pt: string;
+    en: string;
+  };
 }
 
 export interface Skill {
@@ -31,14 +54,20 @@ export interface Skill {
 }
 
 export interface Service {
-  title: string;
-  description: string;
+  title: {
+    pt: string;
+    en: string;
+  };
+  description: {
+    pt: string;
+    en: string;
+  };
   icon: string;
 }
 
 export enum Page {
-  ABOUT = 'Sobre',
-  RESUME = 'Currículo',
-  PORTFOLIO = 'Portfólio',
-  CONTACT = 'Contato'
+  ABOUT = 'ABOUT',
+  RESUME = 'RESUME',
+  PORTFOLIO = 'PORTFOLIO',
+  CONTACT = 'CONTACT'
 }

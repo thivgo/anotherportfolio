@@ -6,8 +6,9 @@ import Resume from './components/Resume';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import { Page } from './types';
+import { LanguageProvider } from './hooks/useLanguage';
 
-const App: React.FC = () => {
+const AppContent: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>(Page.ABOUT);
 
   const renderContent = () => {
@@ -46,6 +47,14 @@ const App: React.FC = () => {
         
       </div>
     </main>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 };
 
