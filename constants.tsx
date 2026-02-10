@@ -125,16 +125,16 @@ export const SKILLS: Skill[] = [
 export const PROJECTS: Project[] = [
   {
     id: 1,
-    title: "CareSync",
-    category: "Care Management",
-    image: "/images/caresync-dashboard.png",
+    title: "Full Roleplay Website",
+    category: "Web Dev",
+    image: "/images/fullroleplay.png",
     description: {
-      pt: "Gerenciador de rotinas de cuidado. Funciona como um 'Jira' para saúde, ajudando jovens a organizar a semana, tarefas e necessidades diárias de idosos dependentes.",
-      en: "Care routine manager. Works like a 'Jira' for health, helping young adults organize the week, tasks, and daily needs of dependent seniors."
+      pt: "Site desenvolvido para o servidor de Roleplay. Interface moderna criada com React para apresentar informações, regras e atualizações da comunidade.",
+      en: "Website developed for the Roleplay server. Modern interface created with React to showcase information, rules, and community updates."
     },
-    tech: ["React", "TypeScript", "Tailwind", "Vite", "Supabase", "PostgreSQL"],
-    githubUrl: "https://github.com/thivgo/caresync",
-    demoUrl: "https://github.com/thivgo/caresync"
+    tech: ["React", "JavaScript", "HTML5", "CSS3"],
+    githubUrl: "https://github.com/thivgo/fullroleplay",
+    demoUrl: "https://github.com/thivgo/fullroleplay"
   },
   {
     id: 2,
