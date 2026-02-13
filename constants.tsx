@@ -137,6 +137,18 @@ export const PROJECTS: Project[] = [
     demoUrl: "https://github.com/thivgo/fullroleplay"
   },
   {
+    id: 5,
+    title: "CareSync V2",
+    category: "Health Tech",
+    image: "/images/caresyncv2.png",
+    description: {
+      pt: "Evolução da plataforma de gestão de saúde. Interface renovada e performance otimizada para melhor experiência de pacientes e médicos.",
+      en: "Evolution of the health management platform. Renewed interface and optimized performance for better patient and doctor experience."
+    },
+    tech: ["React", "TypeScript", "Tailwind", "Node.js"],
+    githubUrl: "https://github.com/thivgo/caresyncv2"
+  },
+  {
     id: 2,
     title: "Generic E-commerce",
     category: "E-commerce",
