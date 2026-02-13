@@ -37,6 +37,7 @@ const UI_TRANSLATIONS: Record<string, { pt: string; en: string }> = {
   'portfolio.title': { pt: 'Portfólio', en: 'Portfolio' },
   'portfolio.all': { pt: 'Todos', en: 'All' },
   'portfolio.featured': { pt: 'Destaque', en: 'Featured' },
+  'portfolio.recommended': { pt: 'Recomendado', en: 'Recommended' },
   
   'contact.title': { pt: 'Contato', en: 'Contact' },
   'contact.formTitle': { pt: 'Formulário de Contato', en: 'Contact Form' },
