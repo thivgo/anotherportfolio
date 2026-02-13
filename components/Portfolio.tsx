@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Eye, Github, X, Maximize2, Star } from 'lucide-react';
+import { Eye, Github, X, Maximize2, Star, Zap } from 'lucide-react';
 import { PROJECTS } from '../constants';
 import { Project } from '../types';
 import { useModal } from '../hooks/useModal';
@@ -51,71 +51,98 @@ const Portfolio: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
         {filteredProjects.map((project: Project) => {
           const isFeatured = project.id === 1;
+          const isRecommended = project.id === 5; // Logic for CareSync V2
+
+          // Dynamic styling based on status
+          let containerClasses = "border border-[#333] hover:border-[#ccff00] hover:shadow-[0_0_20px_rgba(204,255,0,0.15)]";
+          let badgeColor = "bg-[#ccff00] text-black";
+          let textColor = "text-white group-hover:text-[#ccff00]";
+          let techBg = "bg-[#111] text-[#ccff00]";
+          let separatorColor = "bg-[#333] group-hover:bg-[#ccff00]";
+
+          if (isFeatured) {
+            containerClasses = "border border-[#ccff00] shadow-[0_0_15px_rgba(204,255,0,0.15)]";
+            textColor = "text-[#ccff00]";
+            separatorColor = "bg-[#ccff00]";
+          } else if (isRecommended) {
+            // Secondary Highlight Styling (Cyan/Blue)
+            containerClasses = "border border-[#0ea5e9] shadow-[0_0_15px_rgba(14,165,233,0.2)] hover:border-[#38bdf8] hover:shadow-[0_0_20px_rgba(56,189,248,0.3)]";
+            textColor = "text-[#0ea5e9]";
+            badgeColor = "bg-[#0ea5e9] text-black";
+            techBg = "bg-[#0f172a] text-[#38bdf8] border-[#1e293b]";
+            separatorColor = "bg-[#0ea5e9]";
+          }
+
           return (
             <div 
                 key={project.id} 
-                className={`group relative bg-[#0a0a0a] rounded-sm overflow-hidden transition-all duration-300 hover:-translate-y-1 
-                ${isFeatured 
-                    ? 'border border-[#ccff00] shadow-[0_0_15px_rgba(204,255,0,0.15)]' 
-                    : 'border border-[#333] hover:border-[#ccff00] hover:shadow-[0_0_20px_rgba(204,255,0,0.15)]'
-                }`}
+                className={`group relative bg-[#0a0a0a] rounded-sm overflow-hidden transition-all duration-300 hover:-translate-y-1 ${containerClasses}`}
             >
+                {/* Featured Badge */}
                 {isFeatured && (
                     <div className="absolute top-0 left-0 bg-[#ccff00] text-black text-[10px] font-bold px-3 py-1 z-20 font-mono tracking-wider uppercase flex items-center gap-1">
                         <Star className="w-3 h-3 fill-black" /> {t('portfolio.featured')}
                     </div>
                 )}
 
+                {/* Recommended Badge */}
+                {isRecommended && (
+                    <div className="absolute top-0 left-0 bg-[#0ea5e9] text-black text-[10px] font-bold px-3 py-1 z-20 font-mono tracking-wider uppercase flex items-center gap-1">
+                        <Zap className="w-3 h-3 fill-black" /> {t('portfolio.recommended')}
+                    </div>
+                )}
+
                 <div className="relative overflow-hidden cursor-pointer h-48" onClick={() => openModal(project.image)}>
-                <div className="absolute inset-0 bg-[#050505]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center gap-4 backdrop-blur-sm">
-                    <div className="absolute top-2 right-2 p-1 bg-black border border-[#ccff00] text-[#ccff00]">
-                        <Maximize2 className="w-4 h-4"/>
+                    <div className="absolute inset-0 bg-[#050505]/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex items-center justify-center gap-4 backdrop-blur-sm">
+                        <div className={`absolute top-2 right-2 p-1 bg-black border ${isRecommended ? 'border-[#0ea5e9] text-[#0ea5e9]' : 'border-[#ccff00] text-[#ccff00]'}`}>
+                            <Maximize2 className="w-4 h-4"/>
+                        </div>
+                        <div className="flex gap-4" onClick={(e) => e.stopPropagation()}>
+                            {project.githubUrl && (
+                            <a 
+                                href={project.githubUrl} 
+                                target="_blank" 
+                                rel="noreferrer" 
+                                className={`bg-black p-3 rounded-sm hover:text-black transition-colors border ${isRecommended ? 'border-[#0ea5e9] text-[#0ea5e9] hover:bg-[#0ea5e9]' : 'border-[#ccff00] text-[#ccff00] hover:bg-[#ccff00]'}`}
+                                title="Código GitHub"
+                            >
+                                <Github className="w-5 h-5" />
+                            </a>
+                            )}
+                            {project.demoUrl && (
+                            <a 
+                                href={project.demoUrl} 
+                                target="_blank" 
+                                rel="noreferrer" 
+                                className={`bg-black p-3 rounded-sm hover:text-black transition-colors border ${isRecommended ? 'border-[#0ea5e9] text-[#0ea5e9] hover:bg-[#0ea5e9]' : 'border-[#ccff00] text-[#ccff00] hover:bg-[#ccff00]'}`}
+                                title="Ver Demo"
+                            >
+                                <Eye className="w-5 h-5" />
+                            </a>
+                            )}
+                        </div>
                     </div>
-                    <div className="flex gap-4" onClick={(e) => e.stopPropagation()}>
-                        {project.githubUrl && (
-                        <a 
-                            href={project.githubUrl} 
-                            target="_blank" 
-                            rel="noreferrer" 
-                            className="bg-black p-3 rounded-sm hover:bg-[#ccff00] hover:text-black text-[#ccff00] transition-colors border border-[#ccff00]"
-                            title="Código GitHub"
-                        >
-                            <Github className="w-5 h-5" />
-                        </a>
-                        )}
-                        {project.demoUrl && (
-                        <a 
-                            href={project.demoUrl} 
-                            target="_blank" 
-                            rel="noreferrer" 
-                            className="bg-black p-3 rounded-sm hover:bg-[#ccff00] hover:text-black text-[#ccff00] transition-colors border border-[#ccff00]"
-                            title="Ver Demo"
-                        >
-                            <Eye className="w-5 h-5" />
-                        </a>
-                        )}
-                    </div>
+                    <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 filter grayscale group-hover:grayscale-0"
+                    />
                 </div>
-                <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 filter grayscale group-hover:grayscale-0"
-                />
-                </div>
-                <div className="p-5 relative">
-                <div className={`absolute top-0 left-0 w-full h-[1px] transition-colors ${isFeatured ? 'bg-[#ccff00]' : 'bg-[#333] group-hover:bg-[#ccff00]'}`}></div>
                 
-                <h3 className={`font-bold text-lg mb-1 transition-colors font-mono uppercase truncate ${isFeatured ? 'text-[#ccff00]' : 'text-white group-hover:text-[#ccff00]'}`}>
-                    {project.title}
-                </h3>
-                <p className="text-gray-500 text-[10px] mb-3 font-mono uppercase tracking-widest">{project.category}</p>
-                <div className="flex gap-2 flex-wrap">
-                    {project.tech.map((t, i) => (
-                        <span key={i} className="text-[10px] bg-[#111] text-[#ccff00] px-2 py-1 border border-[#333] font-mono">
-                            {t}
-                        </span>
-                    ))}
-                </div>
+                <div className="p-5 relative">
+                    <div className={`absolute top-0 left-0 w-full h-[1px] transition-colors ${separatorColor}`}></div>
+                    
+                    <h3 className={`font-bold text-lg mb-1 transition-colors font-mono uppercase truncate ${textColor}`}>
+                        {project.title}
+                    </h3>
+                    <p className="text-gray-500 text-[10px] mb-3 font-mono uppercase tracking-widest">{project.category}</p>
+                    <div className="flex gap-2 flex-wrap">
+                        {project.tech.map((t, i) => (
+                            <span key={i} className={`text-[10px] px-2 py-1 border border-[#333] font-mono ${isRecommended ? techBg : 'bg-[#111] text-[#ccff00]'}`}>
+                                {t}
+                            </span>
+                        ))}
+                    </div>
                 </div>
             </div>
           );
