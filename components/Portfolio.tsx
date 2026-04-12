@@ -51,7 +51,7 @@ const Portfolio: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
         {filteredProjects.map((project: Project) => {
           const isFeatured = project.id === 1;
-          const isRecommended = project.id === 5; // Logic for CareSync V2
+          const isRecommended = project.id === 6; // Logic for Calendário Municipal
 
           // Dynamic styling based on status
           let containerClasses = "border border-[#333] hover:border-[#ccff00] hover:shadow-[0_0_20px_rgba(204,255,0,0.15)]";

@@ -103,6 +103,16 @@ export const EDUCATION: Education[] = [
 
 export const EXPERIENCE: Experience[] = [
   {
+    id: 2,
+    role: { pt: "Desenvolvedor Júnior", en: "Junior Developer" },
+    company: "SEAC - PA",
+    period: { pt: "2025 - Atualmente", en: "2025 - Currently" },
+    description: {
+      pt: "Atuação no auxílio da instalação de sistemas operacionais, programas de computadores, micros e comunicação de dados. Responsável pela elaboração e automatização de relatórios, auxílio nas operações de sistemas e resolução de questões técnicas relacionadas a erros em equipamentos, redes ou programas.",
+      en: "Assisting in the installation of operating systems, computer programs, micros, and data communication. Responsible for preparing and automating reports, assisting in system operations, and resolving technical issues related to equipment, network, or software errors."
+    }
+  },
+  {
     id: 1,
     role: { pt: "Freelancer", en: "Freelancer" },
     company: "Design e Web",
@@ -135,6 +145,18 @@ export const PROJECTS: Project[] = [
     tech: ["React", "JavaScript", "HTML5", "CSS3"],
     githubUrl: "https://github.com/thivgo/fullroleplay",
     demoUrl: "https://github.com/thivgo/fullroleplay"
+  },
+  {
+    id: 6,
+    title: "Calendário Municipal",
+    category: "Web App",
+    image: "/images/calendario.png",
+    description: {
+      pt: "Aplicativo web para consulta e gerenciamento de calendários municipais, facilitando o acesso a datas importantes e eventos locais.",
+      en: "Web application for consulting and managing municipal calendars, facilitating access to important dates and local events."
+    },
+    tech: ["Nuxt.js 3", "Vue 3", "Tailwind CSS", "Cheerio", "date-fns", "Pinia"],
+    githubUrl: "https://github.com/thivgo/calendario-municipal"
   },
   {
     id: 5,
