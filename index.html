@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thiago Maués — Desenvolvedor front-end</title>
+    <meta
+      name="description"
+      content="Desenvolvedor front-end em Belém do Pará. React, Vue/Nuxt e TypeScript. Procurando estágio ou vaga júnior."
+    />
+    <meta property="og:title" content="Thiago Maués — Desenvolvedor front-end" />
+    <meta
+      property="og:description"
+      content="React, Vue/Nuxt e TypeScript. Projetos para clientes e para a SEAC-PA, no Governo do Pará."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#1E3EA1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,300..900&family=Martian+Mono:wdth,wght@75..112.5,300..600&family=Schibsted+Grotesk:ital,wght@0,400..700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Aplica tema e idioma salvos antes da primeira pintura, evitando o flash -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (t !== 'light' && t !== 'dark') {
+            t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          }
+          document.documentElement.dataset.theme = t;
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
