@@ -1,27 +1,29 @@
 import { useLanguage } from '../i18n';
-import { SectionHead } from './SectionHead';
+import { PROFILE } from '../data/content';
 
 export function About() {
   const { t } = useLanguage();
   const a = t.about;
 
   return (
-    <section className="section about" aria-labelledby="sobre-titulo" id="sobre">
-      <SectionHead id="sobre-titulo" label={a.label} title={a.title} motif="az-folha" />
-      <div className="about-grid">
-        <div className="about-body">
-          {a.body.map((p) => (
-            <p key={p}>{p}</p>
-          ))}
+    <section className="section" id="sobre" aria-labelledby="sobre-titulo" data-c="Sobre">
+      <div className="container grid about">
+        <figure className="about-photo" data-c="Sobre/Foto">
+          <img src={PROFILE.photo} alt={a.photoAlt} width={460} height={460} loading="lazy" />
+          <figcaption className="label">{a.photoCaption}</figcaption>
+        </figure>
+
+        <div className="about-text">
+          <p className="label">{a.label}</p>
+          <h2 id="sobre-titulo" className="section-title">
+            {a.title}
+          </h2>
+          <div className="about-body" data-c="Sobre/Texto">
+            {a.body.map((p) => (
+              <p key={p}>{p}</p>
+            ))}
+          </div>
         </div>
-        <dl className="facts">
-          {a.facts.map((f) => (
-            <div key={f.term} className="fact">
-              <dt>{f.term}</dt>
-              <dd>{f.value}</dd>
-            </div>
-          ))}
-        </dl>
       </div>
     </section>
   );

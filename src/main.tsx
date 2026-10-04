@@ -1,13 +1,16 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { LanguageProvider } from './i18n';
+import { InspectProvider } from './inspect/InspectContext';
 import App from './App';
 import './styles.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <LanguageProvider>
-      <App />
+      <InspectProvider>
+        <App />
+      </InspectProvider>
     </LanguageProvider>
   </StrictMode>,
 );

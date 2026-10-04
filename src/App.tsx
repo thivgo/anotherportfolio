@@ -1,12 +1,12 @@
 import { useLanguage } from './i18n';
-import { AzulejoDefs } from './components/Azulejo';
 import { Nav } from './components/Nav';
 import { Hero } from './components/Hero';
+import { Work } from './components/Work';
 import { About } from './components/About';
-import { Projects } from './components/Projects';
 import { Experience } from './components/Experience';
-import { StackSection } from './components/StackSection';
+import { Skills } from './components/Skills';
 import { Contact } from './components/Contact';
+import { Inspector } from './inspect/Inspector';
 
 export default function App() {
   const { t } = useLanguage();
@@ -16,16 +16,16 @@ export default function App() {
       <a className="skip" href="#conteudo">
         {t.ui.skip}
       </a>
-      <AzulejoDefs />
       <Nav />
       <Hero />
       <main id="conteudo">
+        <Work />
         <About />
-        <Projects />
         <Experience />
-        <StackSection />
+        <Skills />
         <Contact />
       </main>
+      <Inspector />
     </>
   );
 }

@@ -1,13 +1,13 @@
-# Thiago Maués — portfólio
+# Thiago Maués · portfólio
 
-Portfólio de desenvolvedor front-end. React 19 + TypeScript + Vite, sem bibliotecas de UI.
+Meu portfólio de front-end. React 19, TypeScript e Vite, sem biblioteca de UI.
 
-O topo é um muro de azulejos portugueses como os do centro histórico de Belém, desenhados em SVG
-(`src/components/Azulejo.tsx`). Cada peça é um quarto do padrão; quatro peças giradas formam o desenho
-inteiro. Passar o mouse (ou tocar) gira a peça e "quebra" o padrão; o botão que aparece embaixo recoloca tudo.
+Aperte **I** em qualquer lugar do site (ou toque em **Inspecionar** no celular) para ligar o modo inspeção.
+Ele mostra o grid de 12 colunas e, ao passar o mouse em qualquer elemento, o nome do componente, o tamanho,
+a fonte, as cores e o padding, lidos direto do CSS computado. O código fica em `src/inspect/`.
 
-- Bilíngue (PT/EN) com context + custom hook (`src/i18n.tsx`); textos em `src/data/content.ts`
-- Tema claro/escuro (`src/hooks/useTheme.ts`), sem flash na primeira pintura
+- Bilíngue (PT/EN) com context e custom hook (`src/i18n.tsx`). Os textos ficam em `src/data/content.ts`
+- Tema claro e escuro sem flash na primeira pintura
 - Respeita `prefers-reduced-motion`
 
 ## Rodar
@@ -19,4 +19,4 @@ npm run dev
 
 ## Deploy
 
-Vercel detecta o Vite sozinho: build `npm run build`, saída `dist`.
+A Vercel faz o build sozinha a cada push na `main` (`npm run build`, saída em `dist`).
