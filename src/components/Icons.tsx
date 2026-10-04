@@ -39,11 +39,3 @@ export function Moon() {
   );
 }
 
-export function Crosshair() {
-  return (
-    <svg viewBox="0 0 16 16" aria-hidden="true" className="icon">
-      <rect x="3" y="3" width="10" height="10" rx="1" strokeDasharray="2 2" />
-      <path d="M8 0.5v4M8 11.5v4M0.5 8h4M11.5 8h4" />
-    </svg>
-  );
-}

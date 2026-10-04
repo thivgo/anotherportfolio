@@ -6,9 +6,9 @@ export function About() {
   const a = t.about;
 
   return (
-    <section className="section" id="sobre" aria-labelledby="sobre-titulo" data-c="Sobre">
+    <section className="section" id="sobre" aria-labelledby="sobre-titulo">
       <div className="container grid about">
-        <figure className="about-photo" data-c="Sobre/Foto">
+        <figure className="about-photo">
           <img src={PROFILE.photo} alt={a.photoAlt} width={460} height={460} loading="lazy" />
           <figcaption className="label">{a.photoCaption}</figcaption>
         </figure>
@@ -18,7 +18,7 @@ export function About() {
           <h2 id="sobre-titulo" className="section-title">
             {a.title}
           </h2>
-          <div className="about-body" data-c="Sobre/Texto">
+          <div className="about-body">
             {a.body.map((p) => (
               <p key={p}>{p}</p>
             ))}

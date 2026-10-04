@@ -29,7 +29,7 @@ export interface Job {
 
 export interface Content {
   meta: { title: string };
-  nav: { work: string; about: string; contact: string; inspect: string; menu: string };
+  nav: { work: string; about: string; contact: string; };
   ui: { switchLang: string; themeToLight: string; themeToDark: string; skip: string };
   hero: {
     role: string;
@@ -38,7 +38,6 @@ export interface Content {
     status: string;
     ctaWork: string;
     ctaCv: string;
-    hint: { press: string; rest: string; touch: string };
   };
   work: {
     label: string;
@@ -78,19 +77,6 @@ export interface Content {
     cv: string;
   };
   footer: { made: string; time: string; top: string };
-  inspect: {
-    on: string;
-    exit: string;
-    empty: string;
-    component: string;
-    element: string;
-    size: string;
-    font: string;
-    color: string;
-    background: string;
-    padding: string;
-    radius: string;
-  };
 }
 
 const img = {
@@ -119,7 +105,7 @@ const live = {
 export const content: Record<Lang, Content> = {
   pt: {
     meta: { title: 'Thiago Maués · Front-end e UI' },
-    nav: { work: 'Trabalho', about: 'Sobre', contact: 'Contato', inspect: 'Inspecionar', menu: 'Menu' },
+    nav: { work: 'Trabalho', about: 'Sobre', contact: 'Contato' },
     ui: {
       switchLang: 'Switch to English',
       themeToLight: 'Usar tema claro',
@@ -138,11 +124,6 @@ export const content: Record<Lang, Content> = {
       status: 'Disponível para estágio ou júnior',
       ctaWork: 'Ver trabalhos',
       ctaCv: 'Currículo (PDF)',
-      hint: {
-        press: 'Aperte',
-        rest: 'pra ver como essa página foi feita',
-        touch: 'Toque aqui pra ver como essa página foi feita',
-      },
     },
     work: {
       label: 'Trabalho',
@@ -309,24 +290,11 @@ export const content: Record<Lang, Content> = {
       time: 'Agora em Belém',
       top: 'Voltar ao topo',
     },
-    inspect: {
-      on: 'Modo inspeção',
-      exit: 'Esc pra sair',
-      empty: 'Passe o mouse em qualquer coisa da página.',
-      component: 'Componente',
-      element: 'Elemento',
-      size: 'Tamanho',
-      font: 'Fonte',
-      color: 'Cor',
-      background: 'Fundo',
-      padding: 'Padding',
-      radius: 'Raio',
-    },
   },
 
   en: {
     meta: { title: 'Thiago Maués · Front-end & UI' },
-    nav: { work: 'Work', about: 'About', contact: 'Contact', inspect: 'Inspect', menu: 'Menu' },
+    nav: { work: 'Work', about: 'About', contact: 'Contact' },
     ui: {
       switchLang: 'Mudar para português',
       themeToLight: 'Use light theme',
@@ -345,11 +313,6 @@ export const content: Record<Lang, Content> = {
       status: 'Open to internships and junior roles',
       ctaWork: 'See my work',
       ctaCv: 'Résumé (PDF)',
-      hint: {
-        press: 'Press',
-        rest: 'to see how this page was built',
-        touch: 'Tap here to see how this page was built',
-      },
     },
     work: {
       label: 'Work',
@@ -515,19 +478,6 @@ export const content: Record<Lang, Content> = {
       made: 'Designed and built by me, with React and TypeScript.',
       time: 'Right now in Belém',
       top: 'Back to top',
-    },
-    inspect: {
-      on: 'Inspect mode',
-      exit: 'Esc to exit',
-      empty: 'Hover over anything on the page.',
-      component: 'Component',
-      element: 'Element',
-      size: 'Size',
-      font: 'Font',
-      color: 'Color',
-      background: 'Background',
-      padding: 'Padding',
-      radius: 'Radius',
     },
   },
 };

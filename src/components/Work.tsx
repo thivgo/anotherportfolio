@@ -8,14 +8,14 @@ function Links({ project, code, live }: { project: Project; code: string; live: 
   return (
     <div className="links">
       {project.demo && (
-        <a href={project.demo} target="_blank" rel="noreferrer" data-c="Link/Externo">
+        <a href={project.demo} target="_blank" rel="noreferrer">
           {live}
           <ArrowUpRight />
           <span className="sr-only">: {project.title}</span>
         </a>
       )}
       {project.repo && (
-        <a href={project.repo} target="_blank" rel="noreferrer" data-c="Link/GitHub">
+        <a href={project.repo} target="_blank" rel="noreferrer">
           <GitHub />
           {code}
           <span className="sr-only">: {project.title}</span>
@@ -27,7 +27,7 @@ function Links({ project, code, live }: { project: Project; code: string; live: 
 
 function Stack({ items }: { items: string[] }) {
   return (
-    <ul className="stack" data-c="Tags/Stack">
+    <ul className="stack">
       {items.map((s) => (
         <li key={s}>{s}</li>
       ))}
@@ -48,7 +48,7 @@ export function Work() {
   };
 
   return (
-    <section className="section" id="trabalho" aria-labelledby="trabalho-titulo" data-c="Trabalho">
+    <section className="section" id="trabalho" aria-labelledby="trabalho-titulo">
       <div className="container section-head">
         <p className="label">{w.label}</p>
         <h2 id="trabalho-titulo" className="section-title">
@@ -58,7 +58,7 @@ export function Work() {
 
       <div className="container cases">
         {w.featured.map((p) => (
-          <article key={p.title} className="case" data-c="Projeto/Destaque">
+          <article key={p.title} className="case">
             <a
               className="case-media"
               href={p.demo ?? p.repo}
@@ -96,8 +96,7 @@ export function Work() {
           {w.others.map((p) => (
             <li
               key={p.title}
-              className="row"
-              data-c="Projeto/Linha"
+              className="row row-hover"
               onPointerEnter={(e) => e.pointerType === 'mouse' && setPreview(p.image ?? null)}
             >
               {p.image && <img className="row-thumb" src={p.image} alt="" loading="lazy" />}
@@ -114,7 +113,7 @@ export function Work() {
         </h3>
         <ul className="rows">
           {w.clients.map((p) => (
-            <li key={p.title} className="row" data-c="Projeto/Cliente">
+            <li key={p.title} className="row">
               <h4 className="row-title">{p.title}</h4>
               <p className="row-kind">{p.kind}</p>
               <p className="row-desc">{p.description}</p>

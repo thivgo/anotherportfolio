@@ -27,7 +27,7 @@ export function Contact() {
 
   return (
     <>
-      <section className="section contact" id="contato" aria-labelledby="contato-titulo" data-c="Contato">
+      <section className="section contact" id="contato" aria-labelledby="contato-titulo">
         <div className="container">
           <p className="label">{c.label}</p>
           <h2 id="contato-titulo" className="contact-title">
@@ -35,7 +35,7 @@ export function Contact() {
           </h2>
           <p className="contact-body">{c.body}</p>
 
-          <div className="contact-mail" data-c="Contato/E-mail">
+          <div className="contact-mail">
             <a href={`mailto:${PROFILE.email}`} className="contact-address">
               {PROFILE.email}
             </a>
@@ -67,7 +67,7 @@ export function Contact() {
         </div>
       </section>
 
-      <footer className="footer" data-c="Rodapé">
+      <footer className="footer">
         <div className="container footer-inner">
           <p>{t.footer.made}</p>
           <p>

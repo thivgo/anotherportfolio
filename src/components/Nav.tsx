@@ -1,17 +1,15 @@
 import { useLanguage } from '../i18n';
 import { useTheme } from '../hooks/useTheme';
-import { useInspect } from '../inspect/InspectContext';
-import { Crosshair, Moon, Sun } from './Icons';
+import { Moon, Sun } from './Icons';
 
 export function Nav() {
   const { t, lang, toggleLang } = useLanguage();
   const { theme, toggleTheme } = useTheme();
-  const { inspecting, toggle } = useInspect();
 
   return (
-    <nav className="nav" aria-label={lang === 'pt' ? 'Principal' : 'Main'} data-c="Nav">
+    <nav className="nav" aria-label={lang === 'pt' ? 'Principal' : 'Main'}>
       <div className="container nav-inner">
-        <a className="nav-brand" href="#top" data-c="Nav/Marca">
+        <a className="nav-brand" href="#top">
           Thiago Maués
         </a>
 
@@ -22,18 +20,7 @@ export function Nav() {
         </ul>
 
         <div className="nav-tools">
-          <button
-            type="button"
-            className={`chip inspect-toggle ${inspecting ? 'is-on' : ''}`}
-            onClick={toggle}
-            aria-pressed={inspecting}
-            data-inspect-toggle
-          >
-            <Crosshair />
-            <span className="inspect-label">{t.nav.inspect}</span>
-            <kbd>I</kbd>
-          </button>
-          <button type="button" className="chip" onClick={toggleLang} aria-label={t.ui.switchLang} data-c="Nav/Idioma">
+          <button type="button" className="chip" onClick={toggleLang} aria-label={t.ui.switchLang}>
             {lang === 'pt' ? 'EN' : 'PT'}
           </button>
           <button
@@ -41,7 +28,6 @@ export function Nav() {
             className="chip chip-icon"
             onClick={toggleTheme}
             aria-label={theme === 'dark' ? t.ui.themeToLight : t.ui.themeToDark}
-            data-c="Nav/Tema"
           >
             {theme === 'dark' ? <Sun /> : <Moon />}
           </button>

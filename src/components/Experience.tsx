@@ -5,14 +5,14 @@ export function Experience() {
   const e = t.experience;
 
   return (
-    <section className="section section-tight" aria-labelledby="experiencia-titulo" data-c="Experiência">
+    <section className="section section-tight" aria-labelledby="experiencia-titulo">
       <div className="container">
         <h2 id="experiencia-titulo" className="label block-label">
           {e.label}
         </h2>
         <ol className="jobs">
           {e.jobs.map((job) => (
-            <li key={job.org} className="job" data-c="Experiência/Item">
+            <li key={job.org} className="job">
               <p className="job-period">{job.period}</p>
               <div className="job-head">
                 <h3 className="job-org">{job.org}</h3>
