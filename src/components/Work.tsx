@@ -59,18 +59,27 @@ export function Work() {
       <div className="container cases">
         {w.featured.map((p) => (
           <article key={p.title} className="case" data-c="Projeto/Destaque">
-            <a className="case-media" href={p.repo} target="_blank" rel="noreferrer" tabIndex={-1} aria-hidden="true">
-              <img src={p.image} alt="" loading="lazy" width={1400} height={900} />
+            <a
+              className="case-media"
+              href={p.demo ?? p.repo}
+              target="_blank"
+              rel="noreferrer"
+              tabIndex={-1}
+              aria-hidden="true"
+            >
+              <img src={p.image} alt="" loading="lazy" width={1440} height={900} />
               <span className="case-open">
-                {w.openRepo}
+                {p.demo ? w.openLive : w.openRepo}
                 <ArrowUpRight />
               </span>
             </a>
             <div className="case-info">
-              <p className="label case-meta">
-                {p.kind} <span>{p.year}</span>
-              </p>
-              <h3 className="case-title">{p.title}</h3>
+              <div className="case-heading">
+                <p className="label case-meta">
+                  {p.kind} <span>{p.year}</span>
+                </p>
+                <h3 className="case-title">{p.title}</h3>
+              </div>
               <p className="case-desc">{p.description}</p>
               <div className="case-extra">
                 <Stack items={p.stack} />

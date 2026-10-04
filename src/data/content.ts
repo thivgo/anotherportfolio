@@ -52,6 +52,7 @@ export interface Content {
     code: string;
     live: string;
     openRepo: string;
+    openLive: string;
   };
   about: {
     label: string;
@@ -95,20 +96,25 @@ export interface Content {
 const img = {
   calendario: '/images/calendario.png',
   caresync: '/images/caresyncv2.png',
-  ecommerce: '/images/generic-ecommerce.png',
-  roleplay: '/images/fullroleplay.png',
-  uffizi: '/images/uffizi-landing.png',
+  apex: '/images/apex-gym.jpg',
+  roleplay: '/images/fullroleplay.jpg',
+  uffizi: '/images/uffizi.jpg',
 };
 
 const repo = {
   calendario: 'https://github.com/thivgo/calendario-municipal',
   caresync: 'https://github.com/thivgo/caresyncv2',
-  ecommerce: 'https://github.com/thivgo/Generic-E-commerce',
+  apex: 'https://github.com/thivgo/apex_gym_website',
   roleplay: 'https://github.com/thivgo/fullroleplay',
-  uffizi: 'https://github.com/thivgo/uffizi-landingpage',
+  uffizi: 'https://github.com/thivgo/uffizi-nuxt-build',
 };
 
-const uffiziDemo = 'https://thivgo.github.io/uffizi-landingpage/';
+const live = {
+  calendario: 'https://calendario-municipal.vercel.app',
+  caresync: 'https://caresyncv2.vercel.app',
+  apex: 'https://apexgym-one.vercel.app',
+  roleplay: 'https://fullroleplay.vercel.app',
+};
 
 export const content: Record<Lang, Content> = {
   pt: {
@@ -151,6 +157,7 @@ export const content: Record<Lang, Content> = {
           stack: ['Nuxt 3', 'Vue 3', 'Pinia', 'Tailwind', 'Cheerio', 'date-fns'],
           image: img.calendario,
           repo: repo.calendario,
+          demo: live.calendario,
         },
         {
           title: 'CareSync',
@@ -161,34 +168,38 @@ export const content: Record<Lang, Content> = {
           stack: ['React 19', 'TypeScript', 'Vite', 'React Router', 'Supabase'],
           image: img.caresync,
           repo: repo.caresync,
+          demo: live.caresync,
+        },
+        {
+          title: 'Apex Gym',
+          kind: 'Site e laboratório',
+          year: '2026',
+          description:
+            'Site de uma academia fictícia que virou meu laboratório. O front é em TypeScript com Vite, e uso o mesmo projeto pra testar serviços de back-end em Go, Rust e Python ligados à mesma interface.',
+          stack: ['TypeScript', 'Vite', 'Go', 'Rust', 'Python'],
+          image: img.apex,
+          repo: repo.apex,
+          demo: live.apex,
         },
       ],
       moreLabel: 'Outros projetos',
       others: [
         {
-          title: 'Generic E-commerce',
-          kind: 'Loja virtual',
-          description: 'Catálogo, carrinho e checkout.',
-          stack: ['React', 'Context API', 'CSS Modules', 'PHP'],
-          image: img.ecommerce,
-          repo: repo.ecommerce,
-        },
-        {
           title: 'Full Roleplay',
-          kind: 'Site de comunidade',
-          description: 'Regras, informações e novidades de um servidor de roleplay.',
-          stack: ['React', 'JavaScript', 'CSS'],
+          kind: 'Portal de comunidade',
+          description: 'Portal de um servidor de GTA V roleplay, com status do servidor em tempo real e as regras da comunidade.',
+          stack: ['React', 'TypeScript', 'React Router'],
           image: img.roleplay,
           repo: repo.roleplay,
+          demo: live.roleplay,
         },
         {
-          title: 'Uffizi',
-          kind: 'Landing page',
-          description: 'Landing page responsiva com cara de museu clássico.',
-          stack: ['HTML', 'CSS', 'JavaScript'],
+          title: 'Uffizi Uniformes',
+          kind: 'Site institucional',
+          description: 'Site de uma fábrica de uniformes corporativos. Fiz a landing page e depois reconstruí tudo em Nuxt 3 com SSR e Tailwind.',
+          stack: ['Nuxt 3', 'Vue 3', 'Tailwind', 'TypeScript'],
           image: img.uffizi,
           repo: repo.uffizi,
-          demo: uffiziDemo,
         },
       ],
       clientsLabel: 'Para clientes',
@@ -201,15 +212,16 @@ export const content: Record<Lang, Content> = {
           stack: ['Nuxt 3', 'GSAP', 'Three.js'],
         },
         {
-          title: 'Gestão de apoiadores',
+          title: 'Gestão de pessoas',
           kind: 'Dashboard',
-          description: 'Painel para uma campanha eleitoral, com login por CPF, acesso por perfil e análise de pagamentos.',
+          description: 'Painel para organizar cadastros de pessoas e pagamentos, com login por CPF, acesso por perfil e relatórios.',
           stack: ['React', 'TypeScript', 'Supabase'],
         },
       ],
       code: 'Código',
       live: 'Ver no ar',
       openRepo: 'Abrir no GitHub',
+      openLive: 'Abrir o site',
     },
     about: {
       label: 'Sobre',
@@ -240,7 +252,7 @@ export const content: Record<Lang, Content> = {
           role: 'Front-end e design',
           period: 'Hoje',
           points: [
-            'Dashboard de apoiadores para campanha eleitoral, em React, TypeScript e Supabase.',
+            'Dashboard de gestão de pessoas e pagamentos, em React, TypeScript e Supabase.',
             'Redesign do site da Alucar em Nuxt 3, com GSAP e Three.js.',
             'Identidade visual, layouts e landing pages.',
           ],
@@ -248,13 +260,13 @@ export const content: Record<Lang, Content> = {
         {
           org: 'LTD, Faculdade Ideal Wyden',
           role: 'Desenvolvedor front-end',
-          period: 'Faculdade',
+          period: 'Na faculdade',
           points: [],
         },
         {
           org: 'ENACTUS, Faculdade Ideal Wyden',
           role: 'Desenvolvedor full stack',
-          period: 'Faculdade',
+          period: 'Na faculdade',
           points: [],
         },
       ],
@@ -352,6 +364,7 @@ export const content: Record<Lang, Content> = {
           stack: ['Nuxt 3', 'Vue 3', 'Pinia', 'Tailwind', 'Cheerio', 'date-fns'],
           image: img.calendario,
           repo: repo.calendario,
+          demo: live.calendario,
         },
         {
           title: 'CareSync',
@@ -362,34 +375,38 @@ export const content: Record<Lang, Content> = {
           stack: ['React 19', 'TypeScript', 'Vite', 'React Router', 'Supabase'],
           image: img.caresync,
           repo: repo.caresync,
+          demo: live.caresync,
+        },
+        {
+          title: 'Apex Gym',
+          kind: 'Site and playground',
+          year: '2026',
+          description:
+            'A website for a made-up gym that turned into my playground. The front end is TypeScript with Vite, and I use the same project to try back-end services in Go, Rust and Python wired to the same interface.',
+          stack: ['TypeScript', 'Vite', 'Go', 'Rust', 'Python'],
+          image: img.apex,
+          repo: repo.apex,
+          demo: live.apex,
         },
       ],
       moreLabel: 'More projects',
       others: [
         {
-          title: 'Generic E-commerce',
-          kind: 'Online store',
-          description: 'Catalogue, cart and checkout.',
-          stack: ['React', 'Context API', 'CSS Modules', 'PHP'],
-          image: img.ecommerce,
-          repo: repo.ecommerce,
-        },
-        {
           title: 'Full Roleplay',
-          kind: 'Community site',
-          description: 'Rules, info and news for a roleplay game server.',
-          stack: ['React', 'JavaScript', 'CSS'],
+          kind: 'Community portal',
+          description: 'Portal for a GTA V roleplay server, with live server status and the community rules.',
+          stack: ['React', 'TypeScript', 'React Router'],
           image: img.roleplay,
           repo: repo.roleplay,
+          demo: live.roleplay,
         },
         {
-          title: 'Uffizi',
-          kind: 'Landing page',
-          description: 'A responsive landing page with a classic museum feel.',
-          stack: ['HTML', 'CSS', 'JavaScript'],
+          title: 'Uffizi Uniformes',
+          kind: 'Company website',
+          description: 'Website for a corporate uniform maker. I built the landing page first, then rebuilt everything in Nuxt 3 with SSR and Tailwind.',
+          stack: ['Nuxt 3', 'Vue 3', 'Tailwind', 'TypeScript'],
           image: img.uffizi,
           repo: repo.uffizi,
-          demo: uffiziDemo,
         },
       ],
       clientsLabel: 'Client work',
@@ -402,15 +419,16 @@ export const content: Record<Lang, Content> = {
           stack: ['Nuxt 3', 'GSAP', 'Three.js'],
         },
         {
-          title: 'Supporter management',
+          title: 'People management',
           kind: 'Dashboard',
-          description: 'A dashboard for an election campaign, with login by Brazilian ID, role-based access and payment reports.',
+          description: 'A dashboard to manage people records and payments, with login by Brazilian ID, role-based access and reports.',
           stack: ['React', 'TypeScript', 'Supabase'],
         },
       ],
       code: 'Code',
       live: 'Live site',
       openRepo: 'Open on GitHub',
+      openLive: 'Open the site',
     },
     about: {
       label: 'About',
@@ -441,7 +459,7 @@ export const content: Record<Lang, Content> = {
           role: 'Front-end and design',
           period: 'Now',
           points: [
-            'Supporter dashboard for an election campaign, in React, TypeScript and Supabase.',
+            'People and payments management dashboard, in React, TypeScript and Supabase.',
             'Alucar website redesign in Nuxt 3, with GSAP and Three.js.',
             'Visual identity, layouts and landing pages.',
           ],
@@ -449,13 +467,13 @@ export const content: Record<Lang, Content> = {
         {
           org: 'LTD, Faculdade Ideal Wyden',
           role: 'Front-end developer',
-          period: 'College',
+          period: 'In college',
           points: [],
         },
         {
           org: 'ENACTUS, Faculdade Ideal Wyden',
           role: 'Full stack developer',
-          period: 'College',
+          period: 'In college',
           points: [],
         },
       ],

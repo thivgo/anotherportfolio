@@ -392,14 +392,17 @@ kbd {
 .hero-name {
   margin-top: clamp(20px, 3vw, 40px);
   font-size: clamp(4.6rem, 17.5vw, 16.5rem);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 0.84;
-  letter-spacing: -0.065em;
+  letter-spacing: -0.06em;
 }
+/* A máscara da animação precisa de folga em cima e embaixo, senão corta
+   o acento do "é" e a perna do "g". A margem negativa devolve o espaçamento. */
 .hero-name .line {
   display: block;
   overflow: hidden;
-  padding-bottom: 0.06em;
+  padding: 0.12em 0 0.24em;
+  margin: -0.12em 0 -0.18em;
 }
 .hero-name .line > span {
   display: inline-block;
@@ -556,6 +559,15 @@ kbd {
   border-radius: var(--r-md);
   background: #0d0e10;
 }
+/* contorno por cima da imagem: separa screenshots escuros do fundo escuro */
+.case-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 14%, transparent);
+  pointer-events: none;
+}
 .case-media img {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -598,17 +610,16 @@ kbd {
   row-gap: 12px;
   align-items: start;
 }
-.case-meta {
-  grid-column: 1 / span 3;
-  grid-row: 1;
+.case-heading {
+  grid-column: 1 / span 4;
+  display: grid;
+  gap: 10px;
 }
 .case-meta span {
   margin-left: 10px;
   color: var(--ink);
 }
 .case-title {
-  grid-column: 1 / span 4;
-  grid-row: 2;
   font-size: clamp(1.7rem, 2.8vw, 2.4rem);
   font-weight: 500;
   line-height: 1.05;
@@ -616,17 +627,15 @@ kbd {
 }
 .case-desc {
   grid-column: 5 / span 4;
-  grid-row: 1 / span 2;
   color: var(--ink-2);
 }
 .case-extra {
   grid-column: 10 / span 3;
-  grid-row: 1 / span 2;
   display: grid;
   gap: 18px;
 }
 
-/* o segundo projeto fica deslocado para a direita, com o texto ao lado */
+/* o segundo e o terceiro projetos alternam imagem e texto lado a lado */
 .case:nth-child(2) .case-media {
   grid-column: 5 / -1;
   grid-row: 1;
@@ -634,6 +643,16 @@ kbd {
 .case:nth-child(2) .case-info {
   grid-column: 1 / span 4;
   grid-row: 1;
+}
+.case:nth-child(3) .case-media {
+  grid-column: 1 / span 8;
+  grid-row: 1;
+}
+.case:nth-child(3) .case-info {
+  grid-column: 9 / -1;
+  grid-row: 1;
+}
+.case:nth-child(n + 2) .case-info {
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -1191,6 +1210,12 @@ kbd {
    Responsivo
    ========================================================================== */
 
+@media (max-width: 1200px) {
+  .hero-side {
+    grid-column: 8 / -1;
+  }
+}
+
 @media (max-width: 1000px) {
   .hero-intro {
     grid-column: 1 / -1;
@@ -1200,22 +1225,19 @@ kbd {
     grid-template-columns: 1fr 1fr;
     align-items: start;
   }
-  .case-title,
-  .case-meta {
+  .case-heading {
     grid-column: 1 / -1;
   }
   .case-desc {
     grid-column: 1 / span 7;
-    grid-row: auto;
   }
   .case-extra {
     grid-column: 8 / -1;
-    grid-row: auto;
   }
-  .case:nth-child(2) .case-media {
+  .case:nth-child(n + 2) .case-media {
     grid-column: 1 / -1;
   }
-  .case:nth-child(2) .case-info {
+  .case:nth-child(n + 2) .case-info {
     grid-column: 1 / -1;
     grid-row: 2;
   }
