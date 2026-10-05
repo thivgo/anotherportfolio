@@ -85,6 +85,7 @@ const img = {
   apex: '/images/apex-gym.jpg',
   roleplay: '/images/fullroleplay.jpg',
   uffizi: '/images/uffizi.jpg',
+  descarte: '/images/descarte-aqui.jpg',
 };
 
 const repo = {
@@ -94,6 +95,8 @@ const repo = {
   roleplay: 'https://github.com/thivgo/fullroleplay',
   uffizi: 'https://github.com/thivgo/uffizi-nuxt-build',
   bot: 'https://github.com/thivgo/management-discord-bot',
+  // o GitHub redireciona se o repositório for renomeado
+  descarte: 'https://github.com/thivgo/React_Test_Mobile-Desktop',
 };
 
 const live = {
@@ -167,6 +170,14 @@ export const content: Record<Lang, Content> = {
       ],
       moreLabel: 'Outros projetos',
       others: [
+        {
+          title: 'Descarte Aqui',
+          kind: 'Projeto do LTD',
+          description: 'Site do Descarte Aqui, projeto do LTD da Wyden que ajuda a encontrar pontos de coleta de resíduos na cidade. No celular ele vira outro layout, com navegação fixa no rodapé.',
+          stack: ['React 19', 'TypeScript', 'Tailwind', 'Vite'],
+          image: img.descarte,
+          repo: repo.descarte,
+        },
         {
           title: 'Full Roleplay',
           kind: 'Portal de comunidade',
@@ -251,7 +262,7 @@ export const content: Record<Lang, Content> = {
           org: 'LTD, Faculdade Ideal Wyden',
           role: 'Desenvolvedor front-end',
           period: 'Na faculdade',
-          points: [],
+          points: ['Fiz o front-end do Descarte Aqui, site que ajuda a encontrar pontos de coleta de resíduos, com layouts separados para celular e desktop.'],
         },
         {
           org: 'ENACTUS, Faculdade Ideal Wyden',
@@ -365,6 +376,14 @@ export const content: Record<Lang, Content> = {
       moreLabel: 'More projects',
       others: [
         {
+          title: 'Descarte Aqui',
+          kind: 'LTD project',
+          description: 'Website for Descarte Aqui, a Wyden LTD project that helps people find waste collection points in the city. On phones it switches to its own layout, with a fixed bottom navigation.',
+          stack: ['React 19', 'TypeScript', 'Tailwind', 'Vite'],
+          image: img.descarte,
+          repo: repo.descarte,
+        },
+        {
           title: 'Full Roleplay',
           kind: 'Community portal',
           description: 'Portal for a GTA V roleplay server, with live server status and the community rules.',
@@ -448,7 +467,7 @@ export const content: Record<Lang, Content> = {
           org: 'LTD, Faculdade Ideal Wyden',
           role: 'Front-end developer',
           period: 'In college',
-          points: [],
+          points: ['Built the front end of Descarte Aqui, a site that helps people find waste collection points, with separate layouts for phone and desktop.'],
         },
         {
           org: 'ENACTUS, Faculdade Ideal Wyden',
