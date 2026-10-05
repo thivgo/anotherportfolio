@@ -81,7 +81,7 @@ export interface Content {
 
 const img = {
   calendario: '/images/calendario.png',
-  caresync: '/images/caresyncv2.png',
+  caresync: '/images/caresync.jpg',
   apex: '/images/apex-gym.jpg',
   roleplay: '/images/fullroleplay.jpg',
   uffizi: '/images/uffizi.jpg',
