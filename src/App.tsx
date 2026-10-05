@@ -1,6 +1,7 @@
 import { useLanguage } from './i18n';
 import { Nav } from './components/Nav';
 import { Hero } from './components/Hero';
+import { Reel } from './components/Reel';
 import { Work } from './components/Work';
 import { About } from './components/About';
 import { Experience } from './components/Experience';
@@ -18,6 +19,7 @@ export default function App() {
       <Nav />
       <Hero />
       <main id="conteudo">
+        <Reel />
         <Work />
         <About />
         <Experience />

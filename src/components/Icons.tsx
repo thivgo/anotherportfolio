@@ -39,3 +39,19 @@ export function Moon() {
   );
 }
 
+
+export function SoundOn() {
+  return (
+    <svg viewBox="0 0 16 16" aria-hidden="true" className="icon">
+      <path d="M2.5 6h2.2L8 3.2v9.6L4.7 10H2.5zM10.6 5.6a3.2 3.2 0 0 1 0 4.8M12.4 3.8a5.8 5.8 0 0 1 0 8.4" />
+    </svg>
+  );
+}
+
+export function SoundOff() {
+  return (
+    <svg viewBox="0 0 16 16" aria-hidden="true" className="icon">
+      <path d="M2.5 6h2.2L8 3.2v9.6L4.7 10H2.5zM10.5 6l3.5 4M14 6l-3.5 4" />
+    </svg>
+  );
+}

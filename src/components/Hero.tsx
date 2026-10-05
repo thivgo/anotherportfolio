@@ -1,12 +1,14 @@
 import { useLanguage } from '../i18n';
 import { PROFILE } from '../data/content';
 import { useLocalTime } from '../hooks/useLocalTime';
-import { ArrowDown, ArrowUpRight } from './Icons';
+import { muteReel, playWithSound, useReelSound } from '../hooks/useReel';
+import { ArrowDown, ArrowUpRight, SoundOff, SoundOn } from './Icons';
 
 export function Hero() {
   const { t } = useLanguage();
   const h = t.hero;
   const time = useLocalTime();
+  const sound = useReelSound();
 
   return (
     <header className="hero" id="top">
@@ -53,10 +55,23 @@ export function Hero() {
       </div>
 
       <div className="container hero-foot">
-        <p className="status">
-          <span className="status-dot" aria-hidden="true" />
-          {h.status}
-        </p>
+        <div className="reel-cue">
+          <a className="reel-cue-link" href="#reel">
+            <svg viewBox="0 0 16 16" aria-hidden="true" className="icon icon-fill reel-cue-play">
+              <path d="M4.5 2.8v10.4L13 8 4.5 2.8Z" />
+            </svg>
+            <span>{t.reel.cue}</span>
+          </a>
+          <button
+            type="button"
+            className={`reel-sound ${sound ? 'is-on' : ''}`}
+            onClick={sound ? muteReel : playWithSound}
+            aria-pressed={sound}
+          >
+            {sound ? <SoundOff /> : <SoundOn />}
+            {sound ? t.reel.mute : t.reel.sound}
+          </button>
+        </div>
         <ul className="hero-social">
           <li>
             <a href={PROFILE.linkedin} target="_blank" rel="noreferrer">

@@ -460,33 +460,69 @@ button {
   background: var(--line);
 }
 
-.status {
+.reel-cue {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  gap: 10px 20px;
   font-size: 0.92rem;
 }
-.status-dot {
-  position: relative;
-  flex-shrink: 0;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--signal);
+.reel-cue-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 36px;
 }
-.status-dot::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: var(--signal);
-  animation: ping 2.4s var(--ease) infinite;
+.reel-cue-play {
+  width: 11px;
+  height: 11px;
+  color: var(--signal);
 }
-@keyframes ping {
-  70%,
-  100% {
-    transform: scale(2.6);
-    opacity: 0;
+.reel-cue-link span {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 92%;
+  background-repeat: no-repeat;
+  transition: background-size 300ms var(--ease);
+}
+.reel-cue-link:hover span {
+  background-size: 100% 1px;
+}
+
+.reel-sound {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 14px 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink-2);
+  font-size: 0.85rem;
+  transition:
+    border-color 180ms var(--ease),
+    color 180ms var(--ease);
+}
+.reel-sound:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.reel-sound.is-on {
+  border-color: var(--signal);
+  color: var(--ink);
+}
+.reel-sound.is-on .icon {
+  color: var(--signal);
+}
+
+/* no celular a frase quebra; o ícone acompanha a primeira linha */
+@media (max-width: 640px) {
+  .reel-cue-link {
+    align-items: baseline;
+  }
+  .reel-cue-play {
+    flex-shrink: 0;
+    transform: translateY(1px);
   }
 }
 
@@ -511,6 +547,35 @@ button {
 }
 .hero-social a:hover .icon {
   transform: translate(2px, -2px);
+}
+
+/* ==========================================================================
+   Reel
+   ========================================================================== */
+
+/* O fundo do reel é o mesmo cinza do tema escuro. Sem moldura, o vídeo vira
+   parte da página; no tema claro a seção vira uma faixa escura do mesmo tom. */
+.reel {
+  --reel-bg: #121315;
+  margin-top: clamp(28px, 4vw, 48px);
+  background: var(--reel-bg);
+  animation: fade 900ms var(--ease) 800ms both;
+}
+:root[data-theme='dark'] .reel {
+  margin-top: 0;
+}
+
+.reel video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: calc(100svh - 64px);
+  object-fit: contain;
+  background: var(--reel-bg);
+  cursor: pointer;
+}
+.reel video:focus-visible {
+  outline-offset: -4px;
 }
 
 /* ==========================================================================

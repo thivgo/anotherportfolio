@@ -35,10 +35,10 @@ export interface Content {
     role: string;
     intro: string;
     specs: { term: string; value: string }[];
-    status: string;
     ctaWork: string;
     ctaCv: string;
   };
+  reel: { label: string; cue: string; sound: string; mute: string; pause: string; resume: string };
   work: {
     label: string;
     title: string;
@@ -126,9 +126,16 @@ export const content: Record<Lang, Content> = {
         { term: 'Back', value: 'Node.js, Java, Supabase' },
         { term: 'Estudo', value: 'Ciência da Computação' },
       ],
-      status: 'Disponível para estágio ou júnior',
       ctaWork: 'Ver trabalhos',
       ctaCv: 'Currículo (PDF)',
+    },
+    reel: {
+      label: 'Reel',
+      cue: 'Sem tempo pra ler tudo? Fiz um resumo em vídeo, são só 52 segundos.',
+      sound: 'Assista com som, a música é boa',
+      mute: 'Tirar o som',
+      pause: 'Clique para pausar',
+      resume: 'Clique para continuar',
     },
     work: {
       label: 'Trabalho',
@@ -331,9 +338,16 @@ export const content: Record<Lang, Content> = {
         { term: 'Back end', value: 'Node.js, Java, Supabase' },
         { term: 'Studying', value: 'Computer Science' },
       ],
-      status: 'Open to internships and junior roles',
       ctaWork: 'See my work',
       ctaCv: 'Résumé (PDF)',
+    },
+    reel: {
+      label: 'Reel',
+      cue: 'No time to read it all? I made a video version, it’s only 52 seconds.',
+      sound: 'Watch it with sound, the music is good',
+      mute: 'Mute',
+      pause: 'Click to pause',
+      resume: 'Click to play',
     },
     work: {
       label: 'Work',
