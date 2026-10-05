@@ -1,6 +1,6 @@
 # Thiago Maués · portfólio
 
-Meu portfólio de front-end. React 19, TypeScript e Vite, sem biblioteca de UI.
+Meu portfólio de desenvolvedor full stack com foco em front-end. React 19, TypeScript e Vite, sem biblioteca de UI.
 
 - Bilíngue (PT/EN) com context e custom hook (`src/i18n.tsx`). Os textos ficam em `src/data/content.ts`
 - Tema claro e escuro sem flash na primeira pintura

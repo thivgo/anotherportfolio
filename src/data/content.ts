@@ -93,6 +93,7 @@ const repo = {
   apex: 'https://github.com/thivgo/apex_gym_website',
   roleplay: 'https://github.com/thivgo/fullroleplay',
   uffizi: 'https://github.com/thivgo/uffizi-nuxt-build',
+  bot: 'https://github.com/thivgo/management-discord-bot',
 };
 
 const live = {
@@ -104,7 +105,7 @@ const live = {
 
 export const content: Record<Lang, Content> = {
   pt: {
-    meta: { title: 'Thiago Maués · Front-end e UI' },
+    meta: { title: 'Thiago Maués · Full stack, foco em front-end' },
     nav: { work: 'Trabalho', about: 'Sobre', contact: 'Contato' },
     ui: {
       switchLang: 'Switch to English',
@@ -113,12 +114,13 @@ export const content: Record<Lang, Content> = {
       skip: 'Pular para o conteúdo',
     },
     hero: {
-      role: 'Front-end e UI design',
+      role: 'Full stack, foco em front-end',
       intro:
-        'Faço interfaces em React e Vue, do layout no Figma até o deploy. Hoje trabalho na SEAC-PA, no Governo do Pará, e estou procurando uma vaga de estágio ou júnior em front-end.',
+        'Faço o front em React e Vue com TypeScript e também cuido do back: login, banco de dados e APIs. Hoje trabalho na SEAC-PA, no Governo do Pará, e procuro estágio ou vaga júnior full stack ou front-end.',
       specs: [
         { term: 'Agora', value: 'Dev júnior na SEAC-PA' },
-        { term: 'Uso no dia a dia', value: 'React, Nuxt, TypeScript' },
+        { term: 'Front', value: 'React, Nuxt, TypeScript' },
+        { term: 'Back', value: 'Supabase, Node.js, PHP' },
         { term: 'Estudo', value: 'Ciência da Computação' },
       ],
       status: 'Disponível para estágio ou júnior',
@@ -145,7 +147,7 @@ export const content: Record<Lang, Content> = {
           kind: 'PWA',
           year: '2026',
           description:
-            'Um app para famílias que cuidam de alguém mais velho. Tem calendário compartilhado, tarefas divididas entre os parentes e um perfil para cada pessoa cuidada. Pensado primeiro para o celular.',
+            'Um app para famílias que cuidam de alguém mais velho. Tem calendário compartilhado, tarefas divididas entre os parentes e um perfil para cada pessoa cuidada, com login e banco no Supabase. Pensado primeiro para o celular.',
           stack: ['React 19', 'TypeScript', 'Vite', 'React Router', 'Supabase'],
           image: img.caresync,
           repo: repo.caresync,
@@ -182,6 +184,13 @@ export const content: Record<Lang, Content> = {
           image: img.uffizi,
           repo: repo.uffizi,
         },
+        {
+          title: 'Management Bot',
+          kind: 'Bot de gestão',
+          description: 'Bot de Discord para tocar um pequeno negócio: fluxo de caixa, estoque, cadastro de clientes e acompanhamento de pedidos.',
+          stack: ['Node.js', 'discord.js', 'JavaScript'],
+          repo: repo.bot,
+        },
       ],
       clientsLabel: 'Para clientes',
       clientsNote: 'Código fechado',
@@ -209,7 +218,7 @@ export const content: Record<Lang, Content> = {
       title: 'Oi, eu sou o Thiago.',
       body: [
         'Estudo Ciência da Computação na Faculdade Ideal Wyden e trabalho como desenvolvedor júnior na SEAC-PA. Lá eu fiz um dashboard em Nuxt que busca sozinho os feriados publicados pelo governo e mostra tudo num calendário, o que acabou virando o Calendário Municipal.',
-        'Fora do trabalho eu pego freelas de sites, landing pages e dashboards. Quase sempre uso React ou Nuxt, Supabase no back e Vercel pro deploy. Também fiz a formação de UI/UX da EBAC, então consigo cuidar do layout e do código no mesmo projeto.',
+        'Fora do trabalho eu pego freelas e cuido do projeto de ponta a ponta: o front em React ou Nuxt, banco e login no Supabase, APIs em Node.js ou PHP e o deploy na Vercel. Também fiz a formação de UI/UX da EBAC, então o layout fica comigo também.',
         'Falo inglês fluente e gosto de trabalhar perto de quem desenha o produto.',
       ],
       photoCaption: 'Eu, em algum dia frio',
@@ -230,10 +239,10 @@ export const content: Record<Lang, Content> = {
         },
         {
           org: 'Freelancer',
-          role: 'Front-end e design',
+          role: 'Full stack e design',
           period: 'Hoje',
           points: [
-            'Dashboard de gestão de pessoas e pagamentos, em React, TypeScript e Supabase.',
+            'Fiz de ponta a ponta um dashboard de gestão de pessoas e pagamentos: interface em React e TypeScript, banco e autenticação no Supabase.',
             'Redesign do site da Alucar em Nuxt 3, com GSAP e Three.js.',
             'Identidade visual, layouts e landing pages.',
           ],
@@ -255,14 +264,14 @@ export const content: Record<Lang, Content> = {
     skills: {
       label: 'Ferramentas',
       groups: [
+        { name: 'Front-end', items: ['React 18 e 19', 'Next.js', 'Vue 3', 'Nuxt 3', 'Pinia', 'React Router'] },
+        { name: 'Back-end', items: ['Node.js', 'APIs REST', 'Supabase', 'PHP', 'Python', 'Java e C# (básico)'] },
         { name: 'Linguagens', items: ['TypeScript', 'JavaScript', 'HTML', 'CSS'] },
-        { name: 'React', items: ['React 18 e 19', 'Hooks', 'Context API', 'React Router', 'Next.js'] },
-        { name: 'Vue', items: ['Vue 3', 'Nuxt 3', 'Pinia'] },
+        { name: 'Banco de dados', items: ['SQL', 'PostgreSQL', 'MySQL'] },
         { name: 'Estilo', items: ['Tailwind', 'CSS Modules', 'Mobile first'] },
         { name: 'Movimento', items: ['GSAP', 'Three.js'] },
-        { name: 'Dados', items: ['Supabase', 'APIs REST', 'Node.js', 'PHP', 'MySQL', 'Cheerio'] },
+        { name: 'Rotina', items: ['Git', 'Vite', 'Vercel', 'Cheerio'] },
         { name: 'Design', items: ['Figma', 'Pesquisa', 'Wireframes', 'Protótipos', 'Acessibilidade'] },
-        { name: 'Rotina', items: ['Git', 'Vite', 'Vercel'] },
       ],
       eduLabel: 'Formação',
       degree: {
@@ -280,7 +289,7 @@ export const content: Record<Lang, Content> = {
     contact: {
       label: 'Contato',
       title: ['Tem uma vaga?', 'Me chama.'],
-      body: 'Topo presencial em Belém ou remoto. E-mail é o jeito mais rápido de falar comigo, mas o LinkedIn também funciona.',
+      body: 'Topo vaga full stack ou front-end, presencial em Belém ou remoto. E-mail é o jeito mais rápido de falar comigo, mas o LinkedIn também funciona.',
       copy: 'Copiar e-mail',
       copied: 'Copiado',
       cv: 'Currículo (PDF)',
@@ -293,7 +302,7 @@ export const content: Record<Lang, Content> = {
   },
 
   en: {
-    meta: { title: 'Thiago Maués · Front-end & UI' },
+    meta: { title: 'Thiago Maués · Full stack, front-end focused' },
     nav: { work: 'Work', about: 'About', contact: 'Contact' },
     ui: {
       switchLang: 'Mudar para português',
@@ -302,12 +311,13 @@ export const content: Record<Lang, Content> = {
       skip: 'Skip to content',
     },
     hero: {
-      role: 'Front-end & UI design',
+      role: 'Full stack, front-end focused',
       intro:
-        'I build interfaces with React and Vue, from the Figma file to the deploy. Right now I work at SEAC-PA, a Pará state government department in Brazil, and I’m looking for a front-end internship or junior role.',
+        'I build the front end with React and Vue in TypeScript and I take care of the back end too: login, databases and APIs. Right now I work at SEAC-PA, a Pará state government department in Brazil, and I’m looking for a full stack or front-end internship or junior role.',
       specs: [
         { term: 'Now', value: 'Junior dev at SEAC-PA' },
-        { term: 'Daily tools', value: 'React, Nuxt, TypeScript' },
+        { term: 'Front end', value: 'React, Nuxt, TypeScript' },
+        { term: 'Back end', value: 'Supabase, Node.js, PHP' },
         { term: 'Studying', value: 'Computer Science' },
       ],
       status: 'Open to internships and junior roles',
@@ -334,7 +344,7 @@ export const content: Record<Lang, Content> = {
           kind: 'PWA',
           year: '2026',
           description:
-            'An app for families looking after an older relative. It has a shared calendar, tasks split between family members and a profile for each person being cared for. Built for phones first.',
+            'An app for families looking after an older relative. It has a shared calendar, tasks split between family members and a profile for each person being cared for, with login and database on Supabase. Built for phones first.',
           stack: ['React 19', 'TypeScript', 'Vite', 'React Router', 'Supabase'],
           image: img.caresync,
           repo: repo.caresync,
@@ -371,6 +381,13 @@ export const content: Record<Lang, Content> = {
           image: img.uffizi,
           repo: repo.uffizi,
         },
+        {
+          title: 'Management Bot',
+          kind: 'Business bot',
+          description: 'A Discord bot to run a small business: cash flow, stock, customer records and order tracking.',
+          stack: ['Node.js', 'discord.js', 'JavaScript'],
+          repo: repo.bot,
+        },
       ],
       clientsLabel: 'Client work',
       clientsNote: 'Private code',
@@ -398,7 +415,7 @@ export const content: Record<Lang, Content> = {
       title: 'Hi, I’m Thiago.',
       body: [
         'I study Computer Science at Faculdade Ideal Wyden and work as a junior developer at SEAC-PA. There I built a Nuxt dashboard that pulls the holidays published by the government and puts them on a calendar, which later became Calendário Municipal.',
-        'Outside of work I take freelance jobs: websites, landing pages and dashboards. I usually reach for React or Nuxt, Supabase on the back end and Vercel to ship. I also did the UI/UX program at EBAC, so I can handle both the layout and the code on the same project.',
+        'Outside of work I take freelance jobs and handle them end to end: the front end in React or Nuxt, database and login on Supabase, APIs in Node.js or PHP and the deploy on Vercel. I also did the UI/UX program at EBAC, so I take care of the layout too.',
         'I speak fluent English and I like working close to the people who design the product.',
       ],
       photoCaption: 'Me, on a cold day',
@@ -419,10 +436,10 @@ export const content: Record<Lang, Content> = {
         },
         {
           org: 'Freelance',
-          role: 'Front-end and design',
+          role: 'Full stack and design',
           period: 'Now',
           points: [
-            'People and payments management dashboard, in React, TypeScript and Supabase.',
+            'Built a people and payments management dashboard end to end: React and TypeScript on the front, database and auth on Supabase.',
             'Alucar website redesign in Nuxt 3, with GSAP and Three.js.',
             'Visual identity, layouts and landing pages.',
           ],
@@ -444,14 +461,14 @@ export const content: Record<Lang, Content> = {
     skills: {
       label: 'Tools',
       groups: [
+        { name: 'Front end', items: ['React 18 & 19', 'Next.js', 'Vue 3', 'Nuxt 3', 'Pinia', 'React Router'] },
+        { name: 'Back end', items: ['Node.js', 'REST APIs', 'Supabase', 'PHP', 'Python', 'Java & C# (basics)'] },
         { name: 'Languages', items: ['TypeScript', 'JavaScript', 'HTML', 'CSS'] },
-        { name: 'React', items: ['React 18 & 19', 'Hooks', 'Context API', 'React Router', 'Next.js'] },
-        { name: 'Vue', items: ['Vue 3', 'Nuxt 3', 'Pinia'] },
+        { name: 'Databases', items: ['SQL', 'PostgreSQL', 'MySQL'] },
         { name: 'Styling', items: ['Tailwind', 'CSS Modules', 'Mobile first'] },
         { name: 'Motion', items: ['GSAP', 'Three.js'] },
-        { name: 'Data', items: ['Supabase', 'REST APIs', 'Node.js', 'PHP', 'MySQL', 'Cheerio'] },
+        { name: 'Workflow', items: ['Git', 'Vite', 'Vercel', 'Cheerio'] },
         { name: 'Design', items: ['Figma', 'Research', 'Wireframes', 'Prototypes', 'Accessibility'] },
-        { name: 'Workflow', items: ['Git', 'Vite', 'Vercel'] },
       ],
       eduLabel: 'Education',
       degree: {
@@ -469,7 +486,7 @@ export const content: Record<Lang, Content> = {
     contact: {
       label: 'Contact',
       title: ['Hiring?', 'Say hi.'],
-      body: 'I’m open to on-site work in Belém or remote. Email is the fastest way to reach me, but LinkedIn works too.',
+      body: 'I’m open to full stack or front-end roles, on-site in Belém or remote. Email is the fastest way to reach me, but LinkedIn works too.',
       copy: 'Copy email',
       copied: 'Copied',
       cv: 'Résumé (PDF)',
