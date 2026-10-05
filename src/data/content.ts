@@ -120,7 +120,7 @@ export const content: Record<Lang, Content> = {
       specs: [
         { term: 'Agora', value: 'Dev júnior na SEAC-PA' },
         { term: 'Front', value: 'React, Nuxt, TypeScript' },
-        { term: 'Back', value: 'Supabase, Node.js, PHP' },
+        { term: 'Back', value: 'Node.js, Java, Supabase' },
         { term: 'Estudo', value: 'Ciência da Computação' },
       ],
       status: 'Disponível para estágio ou júnior',
@@ -265,9 +265,9 @@ export const content: Record<Lang, Content> = {
       label: 'Ferramentas',
       groups: [
         { name: 'Front-end', items: ['React 18 e 19', 'Next.js', 'Vue 3', 'Nuxt 3', 'Pinia', 'React Router'] },
-        { name: 'Back-end', items: ['Node.js', 'APIs REST', 'Supabase', 'PHP', 'Python', 'Java e C# (básico)'] },
-        { name: 'Linguagens', items: ['TypeScript', 'JavaScript', 'HTML', 'CSS'] },
-        { name: 'Banco de dados', items: ['SQL', 'PostgreSQL', 'MySQL'] },
+        { name: 'Back-end', items: ['APIs web com Node.js e Java', 'Supabase', 'PHP'] },
+        { name: 'Linguagens', items: ['TypeScript', 'JavaScript', 'Java', 'C#', 'HTML', 'CSS'] },
+        { name: 'Banco de dados', items: ['PostgreSQL', 'MySQL', 'SQL'] },
         { name: 'Estilo', items: ['Tailwind', 'CSS Modules', 'Mobile first'] },
         { name: 'Movimento', items: ['GSAP', 'Three.js'] },
         { name: 'Rotina', items: ['Git', 'Vite', 'Vercel', 'Cheerio'] },
@@ -317,7 +317,7 @@ export const content: Record<Lang, Content> = {
       specs: [
         { term: 'Now', value: 'Junior dev at SEAC-PA' },
         { term: 'Front end', value: 'React, Nuxt, TypeScript' },
-        { term: 'Back end', value: 'Supabase, Node.js, PHP' },
+        { term: 'Back end', value: 'Node.js, Java, Supabase' },
         { term: 'Studying', value: 'Computer Science' },
       ],
       status: 'Open to internships and junior roles',
@@ -462,9 +462,9 @@ export const content: Record<Lang, Content> = {
       label: 'Tools',
       groups: [
         { name: 'Front end', items: ['React 18 & 19', 'Next.js', 'Vue 3', 'Nuxt 3', 'Pinia', 'React Router'] },
-        { name: 'Back end', items: ['Node.js', 'REST APIs', 'Supabase', 'PHP', 'Python', 'Java & C# (basics)'] },
-        { name: 'Languages', items: ['TypeScript', 'JavaScript', 'HTML', 'CSS'] },
-        { name: 'Databases', items: ['SQL', 'PostgreSQL', 'MySQL'] },
+        { name: 'Back end', items: ['Web APIs with Node.js and Java', 'Supabase', 'PHP'] },
+        { name: 'Languages', items: ['TypeScript', 'JavaScript', 'Java', 'C#', 'HTML', 'CSS'] },
+        { name: 'Databases', items: ['PostgreSQL', 'MySQL', 'SQL'] },
         { name: 'Styling', items: ['Tailwind', 'CSS Modules', 'Mobile first'] },
         { name: 'Motion', items: ['GSAP', 'Three.js'] },
         { name: 'Workflow', items: ['Git', 'Vite', 'Vercel', 'Cheerio'] },

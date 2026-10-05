@@ -362,9 +362,9 @@ button {
 .hero-name {
   margin-top: clamp(20px, 3vw, 40px);
   font-size: clamp(4.6rem, 17.5vw, 16.5rem);
-  font-weight: 600;
+  font-weight: 800;
   line-height: 0.84;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.045em;
 }
 /* A máscara da animação precisa de folga em cima e embaixo, senão corta
    o acento do "é" e a perna do "g". A margem negativa devolve o espaçamento. */
@@ -931,9 +931,9 @@ button {
 .contact-title {
   margin-top: 18px;
   font-size: clamp(3rem, 9vw, 8.5rem);
-  font-weight: 500;
+  font-weight: 700;
   line-height: 0.92;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.05em;
 }
 .contact-body {
   max-width: 44ch;
