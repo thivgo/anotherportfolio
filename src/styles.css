@@ -930,10 +930,18 @@ button {
 }
 .contact-title {
   margin-top: 18px;
-  font-size: clamp(3rem, 9vw, 8.5rem);
-  font-weight: 700;
+  font-size: clamp(2.6rem, 7.6vw, 7.4rem);
+  font-weight: 800;
   line-height: 0.92;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.045em;
+}
+.contact-title .contact-dot {
+  display: inline;
+  color: var(--signal);
+}
+.contact-title .nowrap {
+  display: inline;
+  white-space: nowrap;
 }
 .contact-body {
   max-width: 44ch;

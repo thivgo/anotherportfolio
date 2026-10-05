@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useLanguage } from '../i18n';
 import { PROFILE } from '../data/content';
 import { useLocalTime } from '../hooks/useLocalTime';
@@ -31,7 +31,19 @@ export function Contact() {
         <div className="container">
           <p className="label">{c.label}</p>
           <h2 id="contato-titulo" className="contact-title">
-            <span>{c.title[0]}</span> <span>{c.title[1]}</span>
+            <span>
+              {/* palavras com hífen (front-end) não quebram no meio */}
+              {c.title[0].split(' ').map((word, i) => (
+                <Fragment key={i}>
+                  {i > 0 && ' '}
+                  {word.includes('-') ? <span className="nowrap">{word}</span> : word}
+                </Fragment>
+              ))}
+            </span>{' '}
+            <span>
+              {c.title[1]}
+              <span className="contact-dot">.</span>
+            </span>
           </h2>
           <p className="contact-body">{c.body}</p>
 

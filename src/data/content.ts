@@ -288,8 +288,8 @@ export const content: Record<Lang, Content> = {
     },
     contact: {
       label: 'Contato',
-      title: ['Tem uma vaga?', 'Me chama.'],
-      body: 'Topo vaga full stack ou front-end, presencial em Belém ou remoto. E-mail é o jeito mais rápido de falar comigo, mas o LinkedIn também funciona.',
+      title: ['Precisa de front-end?', 'Me chama'],
+      body: 'Se o seu time precisa de alguém pra levar a interface do Figma até o ar, eu topo. Presencial em Belém ou remoto, e o e-mail é o jeito mais rápido de falar comigo.',
       copy: 'Copiar e-mail',
       copied: 'Copiado',
       cv: 'Currículo (PDF)',
@@ -485,8 +485,8 @@ export const content: Record<Lang, Content> = {
     },
     contact: {
       label: 'Contact',
-      title: ['Hiring?', 'Say hi.'],
-      body: 'I’m open to full stack or front-end roles, on-site in Belém or remote. Email is the fastest way to reach me, but LinkedIn works too.',
+      title: ['Need a front-end dev?', 'Let’s talk'],
+      body: 'If your team needs someone to take an interface from Figma to production, I’m in. On-site in Belém or remote, and email is the fastest way to reach me.',
       copy: 'Copy email',
       copied: 'Copied',
       cv: 'Résumé (PDF)',
