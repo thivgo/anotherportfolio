@@ -568,9 +568,9 @@ button {
 .reel video {
   display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 16 / 9;
-  max-height: calc(100svh - 64px);
-  object-fit: contain;
+  object-fit: cover;
   background: var(--reel-bg);
   cursor: pointer;
 }
