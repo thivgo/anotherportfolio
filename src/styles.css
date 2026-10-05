@@ -558,7 +558,12 @@ button {
 .reel {
   --reel-bg: #121315;
   margin-top: clamp(28px, 4vw, 48px);
-  background: var(--reel-bg);
+  /* as laterais recebem a cor da borda do quadro atual (useEdgeColor) */
+  background: linear-gradient(
+    to right,
+    var(--reel-left, var(--reel-bg)) 50%,
+    var(--reel-right, var(--reel-bg)) 50%
+  );
   animation: fade 900ms var(--ease) 800ms both;
 }
 :root[data-theme='dark'] .reel {
@@ -567,12 +572,21 @@ button {
 
 .reel video {
   display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
+  /* O reel é 2,4:1 com o conteúdo numa área 16:9 no meio; as laterais são só
+     fundo. Ele preenche a largura e, quando falta altura, o cover corta das
+     laterais. 72px = scroll-padding-top do html, então cabe abaixo do menu. */
+  width: min(100%, calc((100svh - 72px) * 2.4));
+  height: min(calc(100svh - 72px), 56.25vw);
+  margin: 0 auto;
   object-fit: cover;
-  background: var(--reel-bg);
   cursor: pointer;
+}
+/* com laterais, as bordas do vídeo se dissolvem na cor da lateral; a faixa
+   de stacks que passa embaixo some aos poucos em vez de ser cortada */
+.reel.has-sides video {
+  --fade: clamp(24px, 3vw, 64px);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent);
 }
 .reel video:focus-visible {
   outline-offset: -4px;

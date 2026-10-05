@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../i18n';
 import { attachReel, muteReel, useReelSound } from '../hooks/useReel';
+import { useEdgeColor } from '../hooks/useEdgeColor';
 
 const SRC = '/video/reel.mp4';
 const POSTER = '/video/reel-poster.jpg';
@@ -11,9 +12,11 @@ export function Reel() {
   const { t } = useLanguage();
   const r = t.reel;
   const ref = useRef<HTMLVideoElement>(null);
+  const box = useRef<HTMLElement>(null);
   const sound = useReelSound();
   const [held, setHeld] = useState(false);
   const [paused, setPaused] = useState(true);
+  useEdgeColor(ref, box);
 
   useEffect(() => {
     attachReel(ref.current);
@@ -54,7 +57,7 @@ export function Reel() {
   };
 
   return (
-    <section className="reel" id="reel" aria-label={r.label}>
+    <section ref={box} className="reel" id="reel" aria-label={r.label}>
       <video
         ref={ref}
         src={SRC}

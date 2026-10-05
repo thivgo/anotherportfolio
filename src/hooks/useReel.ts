@@ -43,7 +43,9 @@ export function playWithSound() {
   video.play().catch(() => {});
   setSound(true);
   const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  video.scrollIntoView({ behavior: calm ? 'auto' : 'smooth', block: 'center' });
+  // se o vídeo ocupa quase a tela toda, encosta embaixo do menu; senão, centraliza
+  const tall = video.offsetHeight > innerHeight - 72 - 128;
+  video.scrollIntoView({ behavior: calm ? 'auto' : 'smooth', block: tall ? 'start' : 'center' });
 }
 
 export function muteReel() {
