@@ -38,7 +38,16 @@ export interface Content {
     ctaWork: string;
     ctaCv: string;
   };
-  reel: { label: string; cue: string; sound: string; mute: string; pause: string; resume: string };
+  reel: {
+    label: string;
+    cue: string;
+    sound: string;
+    mute: string;
+    pause: string;
+    resume: string;
+    replay: string;
+    more: string;
+  };
   work: {
     label: string;
     title: string;
@@ -136,6 +145,8 @@ export const content: Record<Lang, Content> = {
       mute: 'Tirar o som',
       pause: 'Clique para pausar',
       resume: 'Clique para continuar',
+      replay: 'Clique para assistir de novo',
+      more: 'Tem mais aqui embaixo',
     },
     work: {
       label: 'Trabalho',
@@ -348,6 +359,8 @@ export const content: Record<Lang, Content> = {
       mute: 'Mute',
       pause: 'Click to pause',
       resume: 'Click to play',
+      replay: 'Click to watch again',
+      more: 'There’s more below',
     },
     work: {
       label: 'Work',

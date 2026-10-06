@@ -557,6 +557,7 @@ button {
    parte da página; no tema claro a seção vira uma faixa escura do mesmo tom. */
 .reel {
   --reel-bg: #121315;
+  position: relative;
   margin-top: clamp(28px, 4vw, 48px);
   /* as laterais recebem a cor da borda do quadro atual (useEdgeColor) */
   background: linear-gradient(
@@ -587,6 +588,75 @@ button {
   --fade: clamp(24px, 3vw, 64px);
   -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent);
   mask-image: linear-gradient(to right, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent);
+}
+/* Convite pra seguir rolando: só aparece quando o vídeo acaba, em cima do
+   último quadro, que é escuro. Cores fixas porque o vídeo é sempre escuro. */
+.reel-more {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(16px, 6%, 64px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgb(236 237 234 / 0.55);
+  opacity: 0;
+  transform: translate(-50%, 8px);
+  pointer-events: none;
+  /* some rápido quando o vídeo volta a tocar */
+  transition:
+    opacity 300ms var(--ease),
+    transform 300ms var(--ease),
+    color 200ms;
+}
+.reel.is-ended .reel-more {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+  /* e entra devagar, depois que o último quadro já escureceu */
+  transition:
+    opacity 1400ms var(--ease) 300ms,
+    transform 1400ms var(--ease) 300ms,
+    color 200ms;
+}
+.reel-more:hover {
+  color: rgb(236 237 234 / 0.9);
+}
+.reel-more-line {
+  position: relative;
+  width: 1px;
+  height: 44px;
+  overflow: hidden;
+  background: rgb(236 237 234 / 0.14);
+}
+.reel-more-line::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 40%;
+  background: rgb(236 237 234 / 0.7);
+  animation: drip 2.6s var(--ease) infinite;
+}
+@keyframes drip {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(260%);
+  }
+}
+@media (max-width: 640px) {
+  .reel-more {
+    gap: 8px;
+    font-size: 0.6rem;
+  }
+  .reel-more-line {
+    height: 20px;
+  }
 }
 .reel video:focus-visible {
   outline-offset: -4px;
