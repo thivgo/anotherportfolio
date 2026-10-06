@@ -556,7 +556,7 @@ button {
 /* O fundo do reel é o mesmo cinza do tema escuro. Sem moldura, o vídeo vira
    parte da página; no tema claro a seção vira uma faixa escura do mesmo tom. */
 .reel {
-  --reel-bg: #121315;
+  --reel-bg: #121314;
   position: relative;
   margin-top: clamp(28px, 4vw, 48px);
   /* as laterais recebem a cor da borda do quadro atual (useEdgeColor) */
