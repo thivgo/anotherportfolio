@@ -3,7 +3,14 @@ import { useLanguage } from '../i18n';
 import { attachReel, muteReel } from '../hooks/useReel';
 import { useEdgeColor } from '../hooks/useEdgeColor';
 
-const SRC = '/video/reel.mp4';
+// Três versões do mesmo reel; o navegador fica com a primeira que conseguir
+// tocar. AV1 e HEVC em 10 bits reproduzem as cores do site exatamente; o
+// H.264 de 8 bits fica de reserva (difere em no máximo 1 tom).
+const SOURCES = [
+  { src: '/video/reel-av1.webm', type: 'video/webm; codecs="av01.0.12M.10"' },
+  { src: '/video/reel-hevc.mp4', type: 'video/mp4; codecs="hvc1.2.4.L150.B0"' },
+  { src: '/video/reel.mp4', type: 'video/mp4; codecs="avc1.640033"' },
+];
 const POSTER = '/video/reel-poster.jpg';
 
 // Nada fica por cima do vídeo: o som é ligado pelo botão do topo e um clique
@@ -62,7 +69,6 @@ export function Reel() {
     <section ref={box} className={`reel ${ended ? 'is-ended' : ''}`} id="reel" aria-label={r.label}>
       <video
         ref={ref}
-        src={SRC}
         poster={POSTER}
         muted
         playsInline
@@ -85,7 +91,11 @@ export function Reel() {
           muteReel();
           setEnded(true);
         }}
-      />
+      >
+        {SOURCES.map((s) => (
+          <source key={s.src} src={s.src} type={s.type} />
+        ))}
+      </video>
 
       <a className="reel-more" href="#trabalho" tabIndex={ended ? 0 : -1} aria-hidden={!ended}>
         <span>{r.more}</span>
