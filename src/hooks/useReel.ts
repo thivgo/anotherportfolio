@@ -16,9 +16,9 @@ export function attachReel(el: HTMLVideoElement | null) {
   video = el;
 }
 
-// O áudio do reel foi masterizado bem alto, então ele toca a 25%, como som
+// O áudio do reel foi masterizado bem alto, então ele toca a 12%, como som
 // ambiente, e sobe aos poucos em vez de começar de uma vez.
-const VOLUME = 0.25;
+const VOLUME = 0.12;
 const FADE_MS = 600;
 let fade = 0;
 
