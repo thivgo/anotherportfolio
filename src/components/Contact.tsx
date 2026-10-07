@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from 'react';
 import { useLanguage } from '../i18n';
 import { PROFILE } from '../data/content';
 import { useLocalTime } from '../hooks/useLocalTime';
-import { ArrowUpRight } from './Icons';
+import { ArrowUpRight, Chat } from './Icons';
 
 export function Contact() {
   const { t } = useLanguage();
@@ -51,9 +51,20 @@ export function Contact() {
             <a href={`mailto:${PROFILE.email}`} className="contact-address">
               {PROFILE.email}
             </a>
-            <button type="button" className={`btn btn-solid ${copied ? 'is-done' : ''}`} onClick={copyEmail}>
-              {copied ? c.copied : c.copy}
-            </button>
+            <div className="contact-actions">
+              <a
+                className="btn btn-line"
+                href={`https://wa.me/${PROFILE.whatsapp}?text=${encodeURIComponent(c.whatsappMessage)}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Chat />
+                {c.whatsapp}
+              </a>
+              <button type="button" className={`btn btn-solid ${copied ? 'is-done' : ''}`} onClick={copyEmail}>
+                {copied ? c.copied : c.copy}
+              </button>
+            </div>
           </div>
 
           <ul className="contact-links">

@@ -1119,6 +1119,11 @@ button {
 .contact-address:hover {
   color: var(--signal);
 }
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
 .contact-links {
   display: flex;
   flex-wrap: wrap;
@@ -1303,8 +1308,12 @@ button {
 }
 
 @media (max-width: 480px) {
-  .hero-actions .btn {
+  .hero-actions .btn,
+  .contact-actions .btn {
     flex: 1 1 100%;
+  }
+  .contact-actions {
+    width: 100%;
   }
 }
 

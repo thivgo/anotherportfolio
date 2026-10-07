@@ -55,3 +55,11 @@ export function SoundOff() {
     </svg>
   );
 }
+
+export function Chat() {
+  return (
+    <svg viewBox="0 0 16 16" aria-hidden="true" className="icon">
+      <path d="M4.7 10.7A5 5 0 1 1 6.8 12.2L3 13.5Z" />
+    </svg>
+  );
+}

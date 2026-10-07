@@ -5,6 +5,7 @@ export const PROFILE = {
   email: 'thiago.mauess@gmail.com',
   github: 'https://github.com/thivgo',
   linkedin: 'https://www.linkedin.com/in/thiagomvues',
+  whatsapp: '5591988282930',
   cv: '/thiago-maues-curriculo.pdf',
   photo: '/images/thiago.jpg',
 };
@@ -83,6 +84,8 @@ export interface Content {
     body: string;
     copy: string;
     copied: string;
+    whatsapp: string;
+    whatsappMessage: string;
     cv: string;
   };
   footer: { made: string; time: string; top: string };
@@ -318,9 +321,11 @@ export const content: Record<Lang, Content> = {
     contact: {
       label: 'Contato',
       title: ['Precisa de front-end?', 'Me chama'],
-      body: 'Se o seu time precisa de alguém pra levar a interface do Figma até o ar, eu topo. Presencial em Belém ou remoto, e o e-mail é o jeito mais rápido de falar comigo.',
+      body: 'Se o seu time precisa de alguém pra levar a interface do Figma até o ar, eu topo. Presencial em Belém ou remoto, e dá pra falar comigo por e-mail ou pelo WhatsApp.',
       copy: 'Copiar e-mail',
       copied: 'Copiado',
+      whatsapp: 'Chamar no WhatsApp',
+      whatsappMessage: 'Oi, Thiago! Vi seu portfólio e queria conversar.',
       cv: 'Currículo (PDF)',
     },
     footer: {
@@ -532,9 +537,11 @@ export const content: Record<Lang, Content> = {
     contact: {
       label: 'Contact',
       title: ['Need a front-end dev?', 'Let’s talk'],
-      body: 'If your team needs someone to take an interface from Figma to production, I’m in. On-site in Belém or remote, and email is the fastest way to reach me.',
+      body: 'If your team needs someone to take an interface from Figma to production, I’m in. On-site in Belém or remote, and you can reach me by email or on WhatsApp.',
       copy: 'Copy email',
       copied: 'Copied',
+      whatsapp: 'Message on WhatsApp',
+      whatsappMessage: 'Hi Thiago! I saw your portfolio and would like to talk.',
       cv: 'Résumé (PDF)',
     },
     footer: {
