@@ -63,3 +63,25 @@ export function Chat() {
     </svg>
   );
 }
+
+// o mesmo símbolo do favicon e do reel: quadrado tracejado com o ponto no meio
+export function Logo() {
+  return (
+    <svg viewBox="0 0 64 64" aria-hidden="true" className="logo">
+      <rect
+        x="5"
+        y="5"
+        width="54"
+        height="54"
+        rx="3"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="7"
+        pathLength="8"
+        strokeDasharray="0.58 0.42"
+        strokeDashoffset="0.29"
+      />
+      <circle cx="32" cy="32" r="10" fill="currentColor" />
+    </svg>
+  );
+}

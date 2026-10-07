@@ -1,6 +1,6 @@
 import { useLanguage } from '../i18n';
 import { useTheme } from '../hooks/useTheme';
-import { Moon, Sun } from './Icons';
+import { Logo, Moon, Sun } from './Icons';
 
 export function Nav() {
   const { t, lang, toggleLang } = useLanguage();
@@ -10,6 +10,7 @@ export function Nav() {
     <nav className="nav" aria-label={lang === 'pt' ? 'Principal' : 'Main'}>
       <div className="container nav-inner">
         <a className="nav-brand" href="#top">
+          <Logo />
           Thiago Maués
         </a>
 
