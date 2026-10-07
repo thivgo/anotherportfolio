@@ -27,3 +27,19 @@ export function useTheme() {
 
   return { theme, toggleTheme };
 }
+
+// Acompanha o data-theme do <html> de qualquer lugar da página: o botão do
+// menu muda o atributo, e quem só precisa ler o tema (como o reel) reage aqui.
+export function useDocTheme(): Theme {
+  const [theme, setTheme] = useState<Theme>(readTheme);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const mo = new MutationObserver(() => setTheme(readTheme()));
+    mo.observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+    setTheme(readTheme());
+    return () => mo.disconnect();
+  }, []);
+
+  return theme;
+}
