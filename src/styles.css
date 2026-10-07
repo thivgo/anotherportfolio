@@ -569,12 +569,12 @@ button {
    Reel
    ========================================================================== */
 
-/* O fundo do reel é o mesmo cinza do tema escuro. Sem moldura, o vídeo vira
-   parte da página; no tema claro a seção vira uma faixa escura do mesmo tom. */
+/* Cada tema tem a sua versão do reel, com o fundo exatamente da cor da
+   página; sem moldura, o vídeo vira parte dela nos dois temas. */
 .reel {
-  --reel-bg: #121314;
+  --reel-bg: #ecedeb;
+  --reel-ink: 17 18 18;
   position: relative;
-  margin-top: clamp(28px, 4vw, 48px);
   /* as laterais recebem a cor da borda do quadro atual (useEdgeColor) */
   background: linear-gradient(
     to right,
@@ -584,7 +584,8 @@ button {
   animation: fade 900ms var(--ease) 800ms both;
 }
 :root[data-theme='dark'] .reel {
-  margin-top: 0;
+  --reel-bg: #121314;
+  --reel-ink: 236 237 234;
 }
 
 .reel video {
@@ -606,7 +607,7 @@ button {
   mask-image: linear-gradient(to right, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent);
 }
 /* Convite pra seguir rolando: só aparece quando o vídeo acaba, em cima do
-   último quadro, que é escuro. Cores fixas porque o vídeo é sempre escuro. */
+   último quadro, que tem a cor da página; o tom do texto segue o tema. */
 .reel-more {
   position: absolute;
   left: 50%;
@@ -619,7 +620,7 @@ button {
   font-size: 0.72rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgb(236 237 234 / 0.55);
+  color: rgb(var(--reel-ink) / 0.55);
   opacity: 0;
   transform: translate(-50%, 8px);
   pointer-events: none;
@@ -640,21 +641,21 @@ button {
     color 200ms;
 }
 .reel-more:hover {
-  color: rgb(236 237 234 / 0.9);
+  color: rgb(var(--reel-ink) / 0.9);
 }
 .reel-more-line {
   position: relative;
   width: 1px;
   height: 44px;
   overflow: hidden;
-  background: rgb(236 237 234 / 0.14);
+  background: rgb(var(--reel-ink) / 0.14);
 }
 .reel-more-line::after {
   content: '';
   position: absolute;
   inset: 0 0 auto;
   height: 40%;
-  background: rgb(236 237 234 / 0.7);
+  background: rgb(var(--reel-ink) / 0.7);
   animation: drip 2.6s var(--ease) infinite;
 }
 @keyframes drip {
