@@ -2,36 +2,31 @@ import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../i18n';
 import { attachReel, muteReel } from '../hooks/useReel';
 import { useEdgeColor } from '../hooks/useEdgeColor';
-import { useDocTheme } from '../hooks/useTheme';
+import { useDocTheme, type Theme } from '../hooks/useTheme';
+import type { Lang } from '../data/content';
 
-// Duas versões do reel, uma pra cada tema do site, e três codificações de
-// cada; o navegador fica com a primeira que conseguir tocar. AV1 e HEVC em 10
-// bits reproduzem as cores do site exatamente; o H.264 de 8 bits fica de
-// reserva (difere em no máximo 1 tom).
-const MEDIA = {
-  dark: {
-    poster: '/video/reel-poster.jpg',
+// Quatro versões do reel, uma pra cada idioma e tema do site, e três
+// codificações de cada; o navegador fica com a primeira que conseguir tocar.
+// AV1 e HEVC em 10 bits reproduzem as cores do site exatamente; o H.264 de
+// 8 bits fica de reserva (difere em no máximo 1 tom).
+//   pt escuro: reel*   pt claro: reel-light*   en escuro: reel-en*   en claro: reel-en-light*
+function reelMedia(lang: Lang, theme: Theme) {
+  const base = `/video/reel${lang === 'en' ? '-en' : ''}${theme === 'light' ? '-light' : ''}`;
+  return {
+    poster: `${base}-poster.jpg`,
     sources: [
-      { src: '/video/reel-av1.webm', type: 'video/webm; codecs="av01.0.12M.10"' },
-      { src: '/video/reel-hevc.mp4', type: 'video/mp4; codecs="hvc1.2.4.L150.B0"' },
-      { src: '/video/reel.mp4', type: 'video/mp4; codecs="avc1.640033"' },
+      { src: `${base}-av1.webm`, type: 'video/webm; codecs="av01.0.12M.10"' },
+      { src: `${base}-hevc.mp4`, type: 'video/mp4; codecs="hvc1.2.4.L150.B0"' },
+      { src: `${base}.mp4`, type: 'video/mp4; codecs="avc1.640033"' },
     ],
-  },
-  light: {
-    poster: '/video/reel-light-poster.jpg',
-    sources: [
-      { src: '/video/reel-light-av1.webm', type: 'video/webm; codecs="av01.0.12M.10"' },
-      { src: '/video/reel-light-hevc.mp4', type: 'video/mp4; codecs="hvc1.2.4.L150.B0"' },
-      { src: '/video/reel-light.mp4', type: 'video/mp4; codecs="avc1.640033"' },
-    ],
-  },
-} as const;
+  };
+}
 
 // Nada fica por cima do vídeo: o som é ligado pelo botão do topo e um clique
 // no próprio vídeo pausa ou continua. Ele toca uma vez e para no último
 // quadro, que já é da cor da página; só ali aparece o convite pra seguir rolando.
 export function Reel() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const r = t.reel;
   const ref = useRef<HTMLVideoElement>(null);
   const box = useRef<HTMLElement>(null);
@@ -39,16 +34,18 @@ export function Reel() {
   const [paused, setPaused] = useState(true);
   const [ended, setEnded] = useState(false);
   const theme = useDocTheme();
-  const media = MEDIA[theme];
-  const shown = useRef(theme);
+  const media = reelMedia(lang, theme);
+  const version = `${lang}-${theme}`;
+  const shown = useRef(version);
   useEdgeColor(ref, box);
 
-  // Troca de tema: carrega a outra versão e continua do mesmo ponto, tocando
-  // ou pausado como estava. As duas têm a mesma duração e a mesma montagem.
+  // Troca de idioma ou de tema: carrega a outra versão e continua do mesmo
+  // ponto, tocando ou pausado como estava. Todas têm a mesma duração e a
+  // mesma montagem, então o mesmo segundo cai na mesma cena.
   useEffect(() => {
     const video = ref.current;
-    if (!video || shown.current === theme) return;
-    shown.current = theme;
+    if (!video || shown.current === version) return;
+    shown.current = version;
     const at = video.currentTime;
     const wasPlaying = !video.paused && !video.ended;
     const wasEnded = video.ended;
@@ -62,7 +59,7 @@ export function Reel() {
     };
     video.addEventListener('loadedmetadata', resume, { once: true });
     return () => video.removeEventListener('loadedmetadata', resume);
-  }, [theme]);
+  }, [version]);
 
   useEffect(() => {
     attachReel(ref.current);
